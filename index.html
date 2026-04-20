@@ -18,17 +18,52 @@
 
   <!-- Navigation -->
   <nav>
-    <div class="logo">HninEiSan<span>.dev</span></div>
+    <div class="logo">~/ eisan.h</div>
     <div class="nav-links">
       <a href="#about">about</a>
       <a href="#projects">projects</a>
       <a href="#skills">skills</a>
       <a href="#contact">contact</a>
+      <a href="resume.html">resume</a>
     </div>
-    <div class="nav-status">
-      <div class="status-dot"></div>
-      available for work
-    </div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+      <div class="track-icons">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2" />
+          <path d="M12 20v2" />
+          <path d="m4.93 4.93 1.41 1.41" />
+          <path d="m17.66 17.66 1.41 1.41" />
+          <path d="M2 12h2" />
+          <path d="M20 12h2" />
+          <path d="m6.34 17.66-1.41 1.41" />
+          <path d="m19.07 4.93-1.41 1.41" />
+        </svg>
+      </div>
+      <div class="toggle-thumb">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" class="sun-icon">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2" />
+          <path d="M12 20v2" />
+          <path d="m4.93 4.93 1.41 1.41" />
+          <path d="m17.66 17.66 1.41 1.41" />
+          <path d="M2 12h2" />
+          <path d="M20 12h2" />
+          <path d="m6.34 17.66-1.41 1.41" />
+          <path d="m19.07 4.93-1.41 1.41" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" class="moon-icon">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+        </svg>
+      </div>
+    </button>
   </nav>
 
   <!-- About Section -->
@@ -38,7 +73,7 @@
     <div class="about-grid">
       <div>
         <div class="about-text">
-          <p>I'm an AI &amp; Robotics Engineering graduate from KMITL with hands-on internship experience at
+          <p>I'm an AI &amp; Robotics Engineering graduate from KMITL with internship experience at
             <span class="highlight">Ford Motor Company</span> and <span class="highlight">Infineon Technologies</span>.
             I build end-to-end AI solutions from data pipelines and dashboards to computer vision systems.
           </p>
@@ -53,13 +88,13 @@
           <div class="term-dot" style="background:#ff4455"></div>
           <div class="term-dot" style="background:#ffb800"></div>
           <div class="term-dot" style="background:#00ff88"></div>
-          <span class="term-title">SYSTEM BOOT</span>
+          <span class="term-title">HNIN EI SAN</span>
         </div>
         <div>
           <ul class="info-list">
 
             <li><span class="key">FOCUS</span><span>AI, Data Science, Computer Vision</span></li>
-            <li><span class="key">EDUCATION</span><span>B.E. Robotics &amp; AI Eng, @ KMITL</span></li>
+            <li><span class="key">EDUCATION</span><span>B.E. Robotics &amp; AI @ KMITL</span></li>
             <li><span class="key">LOCATION</span><span>Bangkok, TH</span></li>
             <li><span class="key">LANGUAGES</span><span>English, Burmese</span></li>
           </ul>
@@ -170,65 +205,69 @@
   <section id="skills">
     <p class="section-label">TECHNICAL STACK</p>
     <h2>Skills <span>&</span> Tools</h2>
-    <div class="skills-grid">
-      <div class="skill-cell">
-        <div class="skill-name">Python</div>
-        <div class="skill-bar-bg">
-          <div class="skill-bar-fill" style="width:95%"></div>
+    <div class="skills-container">
+
+      <div class="skill-group">
+        <h3>Programming</h3>
+        <div class="skill-tag-list">
+          <div class="skill-tag">Python</div>
+          <div class="skill-tag">C</div>
+          <div class="skill-tag">SQL</div>
+          <div class="skill-tag">MATLAB</div>
         </div>
-        <div class="skill-level">EXPERT</div>
       </div>
-      <div class="skill-cell">
-        <div class="skill-name">OpenCV / Computer Vision</div>
-        <div class="skill-bar-bg">
-          <div class="skill-bar-fill" style="width:90%"></div>
+
+      <div class="skill-group">
+        <h3>AI & ML</h3>
+        <div class="skill-tag-list">
+          <div class="skill-tag">Machine Learning</div>
+          <div class="skill-tag">Deep Learning</div>
+          <div class="skill-tag">Computer Vision</div>
+          <div class="skill-tag">LLMs</div>
+          <div class="skill-tag">RAG</div>
+          <div class="skill-tag">NLP</div>
+          <div class="skill-tag">Agentic AI</div>
+          <div class="skill-tag">Crew AI</div>
+          <div class="skill-tag">GenAI</div>
         </div>
-        <div class="skill-level">EXPERT</div>
       </div>
-      <div class="skill-cell">
-        <div class="skill-name">Machine Learning / Deep Learning</div>
-        <div class="skill-bar-bg">
-          <div class="skill-bar-fill" style="width:88%"></div>
+
+      <div class="skill-group">
+        <h3>Data Analysis</h3>
+        <div class="skill-tag-list">
+          <div class="skill-tag">Data Cleaning</div>
+          <div class="skill-tag">EDA</div>
+          <div class="skill-tag">Data Transformation</div>
+          <div class="skill-tag">Statistical Analysis</div>
         </div>
-        <div class="skill-level">PROFICIENT</div>
       </div>
-      <div class="skill-cell">
-        <div class="skill-name">LLMs / RAG / Agentic AI</div>
-        <div class="skill-bar-bg">
-          <div class="skill-bar-fill" style="width:85%"></div>
+
+      <div class="skill-group">
+        <h3>Visualization</h3>
+        <div class="skill-tag-list">
+          <div class="skill-tag">Matplotlib</div>
+          <div class="skill-tag">Seaborn</div>
+          <div class="skill-tag">Power BI</div>
         </div>
-        <div class="skill-level">PROFICIENT</div>
       </div>
-      <div class="skill-cell">
-        <div class="skill-name">Power BI / Streamlit</div>
-        <div class="skill-bar-bg">
-          <div class="skill-bar-fill" style="width:85%"></div>
+
+      <div class="skill-group">
+        <h3>Tools & Infrastructure</h3>
+        <div class="skill-tag-list">
+          <div class="skill-tag">MATLAB</div>
+          <div class="skill-tag">Excel</div>
+          <div class="skill-tag">Git</div>
+          <div class="skill-tag">Linux (Ubuntu)</div>
+          <div class="skill-tag">Docker</div>
+          <div class="skill-tag">Stream-lit</div>
+          <div class="skill-tag">SharePoint</div>
+          <div class="skill-tag">Power Automate</div>
         </div>
-        <div class="skill-level">PROFICIENT</div>
       </div>
-      <div class="skill-cell">
-        <div class="skill-name">SQL / Data Analysis</div>
-        <div class="skill-bar-bg">
-          <div class="skill-bar-fill" style="width:82%"></div>
-        </div>
-        <div class="skill-level">PROFICIENT</div>
-      </div>
-      <div class="skill-cell">
-        <div class="skill-name">Docker / Linux / Git</div>
-        <div class="skill-bar-bg">
-          <div class="skill-bar-fill" style="width:80%"></div>
-        </div>
-        <div class="skill-level">PROFICIENT</div>
-      </div>
-      <div class="skill-cell">
-        <div class="skill-name">MATLAB</div>
-        <div class="skill-bar-bg">
-          <div class="skill-bar-fill" style="width:75%"></div>
-        </div>
-        <div class="skill-level">INTERMEDIATE</div>
-      </div>
+
     </div>
   </section>
+
 
 
 
@@ -245,8 +284,7 @@
             class="contact-link">GITHUB</button></a>
         <a href="https://www.linkedin.com/in/hnin-ei-san-57493b177/" target="_blank" rel="noopener noreferrer"><button
             class="contact-link">LINKEDIN</button></a>
-        <a href="resume.pdf" target="_blank" rel="noopener noreferrer" download><button
-            class="contact-link">RESUME.PDF</button></a>
+
 
       </div>
     </div>
@@ -257,6 +295,8 @@
     <span>© 2026 Hnin Ei San </span>
 
   </footer>
+
+  <script src="assets/js/theme.js"></script>
 
 </body>
 
