@@ -16,6 +16,188 @@
   <!-- Grid background -->
   <div class="grid-bg"></div>
 
+  <!-- Decorative Background Illustrations -->
+  <div class="decorative-bg" aria-hidden="true">
+    <!-- 1. y = mx + c (top-left) -->
+    <div class="bg-illustration illus-eq">
+      <svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr-eq" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5"
+            orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </marker>
+        </defs>
+        <text x="14" y="90" font-size="32" font-weight="700" font-family="Georgia,serif" fill="currentColor"
+          letter-spacing="-1">y = <tspan fill="#d63ab8">m</tspan>x + <tspan fill="#2db84b">c</tspan></text>
+        <text x="6" y="28" font-size="10" font-family="monospace" fill="currentColor"
+          font-style="italic">y-coordinate</text>
+        <line x1="22" y1="32" x2="22" y2="65" stroke="currentColor" stroke-width="1" marker-end="url(#arr-eq)" />
+        <text x="123" y="28" font-size="10" font-family="monospace" fill="currentColor"
+          font-style="italic">x-coordinate</text>
+        <line x1="138" y1="32" x2="138" y2="62" stroke="currentColor" stroke-width="1" marker-end="url(#arr-eq)" />
+        <text x="96" y="140" font-size="10" font-family="monospace" fill="#d63ab8" font-style="italic">gradient</text>
+        <line x1="102" y1="130" x2="102" y2="100" stroke="#d63ab8" stroke-width="1" marker-end="url(#arr-eq)" />
+        <text x="180" y="140" font-size="10" font-family="monospace" fill="#2db84b"
+          font-style="italic">y-intercept</text>
+        <line x1="198" y1="130" x2="198" y2="100" stroke="#2db84b" stroke-width="1" marker-end="url(#arr-eq)" />
+      </svg>
+    </div>
+
+    <!-- 2. Feynman Quote (vertical) -->
+    <div class="bg-illustration illus-quote">
+      <blockquote class="vertical-quote">
+        "We need to teach how doubt is not to be feared but welcomed. It's OK to say, 'I don't know.'"
+        <cite>— Richard Feynman</cite>
+      </blockquote>
+    </div>
+
+    <!-- 3. Single Neuron (bottom-left) -->
+    <div class="bg-illustration illus-neuron">
+      <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr-n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4"
+            orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </marker>
+        </defs>
+        <!-- Input boxes -->
+        <rect x="0" y="18" width="38" height="28" rx="5" fill="none" stroke="currentColor" stroke-width="0.8" />
+        <rect x="0" y="66" width="38" height="28" rx="5" fill="none" stroke="currentColor" stroke-width="0.8" />
+        <rect x="0" y="114" width="38" height="28" rx="5" fill="none" stroke="currentColor" stroke-width="0.8" />
+        <text x="19" y="36" font-size="12" font-family="monospace" fill="currentColor" text-anchor="middle"
+          font-style="italic">x₁</text>
+        <text x="19" y="84" font-size="12" font-family="monospace" fill="currentColor" text-anchor="middle"
+          font-style="italic">x₂</text>
+        <text x="19" y="132" font-size="12" font-family="monospace" fill="currentColor" text-anchor="middle"
+          font-style="italic">x₃</text>
+        <!-- Weight circles -->
+        <circle cx="118" cy="32" r="18" fill="none" stroke="#3b82f6" stroke-width="1" />
+        <circle cx="118" cy="80" r="18" fill="none" stroke="#3b82f6" stroke-width="1" />
+        <circle cx="118" cy="128" r="18" fill="none" stroke="#3b82f6" stroke-width="1" />
+        <text x="118" y="36" font-size="11" font-family="monospace" fill="#3b82f6" text-anchor="middle"
+          font-style="italic">w₁</text>
+        <text x="118" y="84" font-size="11" font-family="monospace" fill="#3b82f6" text-anchor="middle"
+          font-style="italic">w₂</text>
+        <text x="118" y="132" font-size="11" font-family="monospace" fill="#3b82f6" text-anchor="middle"
+          font-style="italic">w₃</text>
+        <!-- x→w -->
+        <line x1="38" y1="32" x2="100" y2="32" stroke="currentColor" stroke-width="0.7" marker-end="url(#arr-n)" />
+        <line x1="38" y1="80" x2="100" y2="80" stroke="currentColor" stroke-width="0.7" marker-end="url(#arr-n)" />
+        <line x1="38" y1="128" x2="100" y2="128" stroke="currentColor" stroke-width="0.7" marker-end="url(#arr-n)" />
+        <!-- Transfer Z -->
+        <circle cx="222" cy="80" r="26" fill="none" stroke="#0ea5a5" stroke-width="1.2" />
+        <text x="222" y="85" font-size="15" font-family="monospace" fill="#0ea5a5" text-anchor="middle"
+          font-style="italic">Z</text>
+        <!-- w→Z -->
+        <line x1="136" y1="32" x2="198" y2="62" stroke="currentColor" stroke-width="0.7" marker-end="url(#arr-n)" />
+        <line x1="136" y1="80" x2="196" y2="80" stroke="currentColor" stroke-width="0.7" marker-end="url(#arr-n)" />
+        <line x1="136" y1="128" x2="198" y2="98" stroke="currentColor" stroke-width="0.7" marker-end="url(#arr-n)" />
+        <!-- Bias -->
+        <rect x="196" y="134" width="52" height="26" rx="4" fill="none" stroke="#e45c5c" stroke-width="1" />
+        <text x="222" y="151" font-size="12" font-family="monospace" fill="#e45c5c" text-anchor="middle"
+          font-style="italic">b</text>
+        <line x1="222" y1="134" x2="222" y2="106" stroke="#e45c5c" stroke-width="0.8" marker-end="url(#arr-n)" />
+        <text x="222" y="176" font-size="9" font-family="monospace" fill="currentColor" text-anchor="middle"
+          opacity="0.6">Threshold</text>
+        <!-- Activation -->
+        <rect x="282" y="60" width="68" height="40" rx="5" fill="none" stroke="#b68a14" stroke-width="1" />
+        <text x="316" y="84" font-size="13" font-family="monospace" fill="#b68a14" text-anchor="middle">σ(z)</text>
+        <line x1="248" y1="80" x2="282" y2="80" stroke="currentColor" stroke-width="0.8" marker-end="url(#arr-n)" />
+        <!-- Output -->
+        <rect x="380" y="64" width="58" height="32" rx="5" fill="none" stroke="#2db84b" stroke-width="1" />
+        <text x="409" y="84" font-size="11" font-family="monospace" fill="#2db84b" text-anchor="middle">Output</text>
+        <line x1="350" y1="80" x2="380" y2="80" stroke="currentColor" stroke-width="0.8" marker-end="url(#arr-n)" />
+        <!-- Column labels -->
+        <text x="19" y="10" font-size="8" font-family="monospace" fill="currentColor" text-anchor="middle"
+          opacity="0.5">Inputs</text>
+        <text x="118" y="10" font-size="8" font-family="monospace" fill="currentColor" text-anchor="middle"
+          opacity="0.5">Weights</text>
+        <text x="222" y="10" font-size="8" font-family="monospace" fill="currentColor" text-anchor="middle"
+          opacity="0.5">Transfer</text>
+        <text x="316" y="10" font-size="8" font-family="monospace" fill="currentColor" text-anchor="middle"
+          opacity="0.5">Activation</text>
+      </svg>
+    </div>
+
+    <!-- 4. Robot Arm Kinematics (bottom-right) -->
+    <div class="bg-illustration illus-arm">
+      <svg viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr-fk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5"
+            orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" />
+          </marker>
+          <marker id="arr-ik" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5"
+            orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="#e45c5c" stroke-width="1.5" stroke-linecap="round" />
+          </marker>
+        </defs>
+        <!-- Axes -->
+        <line x1="50" y1="255" x2="50" y2="150" stroke="currentColor" stroke-width="0.8" opacity="0.6"
+          marker-end="url(#arr-fk)" />
+        <line x1="50" y1="255" x2="160" y2="255" stroke="currentColor" stroke-width="0.8" opacity="0.6"
+          marker-end="url(#arr-fk)" />
+        <text x="46" y="144" font-size="9" font-family="monospace" fill="currentColor" opacity="0.6">Y</text>
+        <text x="164" y="259" font-size="9" font-family="monospace" fill="currentColor" opacity="0.6">X</text>
+        <!-- Base -->
+        <rect x="34" y="252" width="32" height="6" rx="2" fill="currentColor" opacity="0.5" />
+        <rect x="28" y="256" width="44" height="5" rx="1" fill="currentColor" opacity="0.3" />
+        <!-- Arm links -->
+        <line x1="50" y1="252" x2="72" y2="200" stroke="currentColor" stroke-width="7" stroke-linecap="round"
+          opacity="0.65" />
+        <line x1="72" y1="200" x2="120" y2="128" stroke="currentColor" stroke-width="7" stroke-linecap="round"
+          opacity="0.65" />
+        <line x1="120" y1="128" x2="210" y2="88" stroke="currentColor" stroke-width="7" stroke-linecap="round"
+          opacity="0.65" />
+        <line x1="210" y1="88" x2="284" y2="116" stroke="currentColor" stroke-width="7" stroke-linecap="round"
+          opacity="0.65" />
+        <!-- Joints -->
+        <circle cx="50" cy="252" r="8" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.85" />
+        <circle cx="72" cy="200" r="8" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.85" />
+        <circle cx="120" cy="128" r="8" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.85" />
+        <circle cx="210" cy="88" r="8" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.85" />
+        <!-- Joint angle arcs -->
+        <circle cx="50" cy="252" r="20" fill="none" stroke="#e45c5c" stroke-width="0.8" stroke-dasharray="3,3" />
+        <circle cx="72" cy="200" r="20" fill="none" stroke="#e45c5c" stroke-width="0.8" stroke-dasharray="3,3" />
+        <circle cx="120" cy="128" r="20" fill="none" stroke="#e45c5c" stroke-width="0.8" stroke-dasharray="3,3" />
+        <circle cx="210" cy="88" r="20" fill="none" stroke="#e45c5c" stroke-width="0.8" stroke-dasharray="3,3" />
+        <!-- q labels -->
+        <text x="18" y="268" font-size="11" font-family="monospace" fill="#e45c5c" font-style="italic">q₁</text>
+        <text x="34" y="214" font-size="11" font-family="monospace" fill="#e45c5c" font-style="italic">q₂</text>
+        <text x="88" y="124" font-size="11" font-family="monospace" fill="#e45c5c" font-style="italic">q₃</text>
+        <text x="200" y="72" font-size="11" font-family="monospace" fill="#e45c5c" font-style="italic">q₄</text>
+        <!-- L labels -->
+        <text x="52" y="232" font-size="9" font-family="monospace" fill="currentColor" opacity="0.6"
+          font-style="italic">L₁</text>
+        <text x="84" y="168" font-size="9" font-family="monospace" fill="currentColor" opacity="0.6"
+          font-style="italic">L₂</text>
+        <text x="156" y="112" font-size="9" font-family="monospace" fill="currentColor" opacity="0.6"
+          font-style="italic">L₃</text>
+        <text x="248" y="96" font-size="9" font-family="monospace" fill="currentColor" opacity="0.6"
+          font-style="italic">L₄</text>
+        <!-- End effector -->
+        <rect x="282" y="104" width="20" height="22" rx="3" fill="currentColor" opacity="0.5" />
+        <rect x="282" y="104" width="20" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="0.8"
+          opacity="0.7" />
+        <rect x="282" y="117" width="20" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="0.8"
+          opacity="0.7" />
+        <!-- EE pose label -->
+        <text x="308" y="114" font-size="9" font-family="monospace" fill="#3b82f6" opacity="0.9">End Effector</text>
+        <text x="308" y="126" font-size="9" font-family="monospace" fill="#3b82f6" opacity="0.9" font-style="italic">(x,
+          y, θ)</text>
+        <!-- FK / IK -->
+        <text x="50" y="282" font-size="8" font-family="monospace" fill="currentColor" opacity="0.5">Forward Kinematics
+          (FK)</text>
+        <line x1="130" y1="290" x2="250" y2="290" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr-fk)"
+          opacity="0.7" />
+        <text x="50" y="308" font-size="8" font-family="monospace" fill="currentColor" opacity="0.5">Inverse Kinematics
+          (IK)</text>
+        <line x1="250" y1="314" x2="130" y2="314" stroke="#e45c5c" stroke-width="2" marker-end="url(#arr-ik)"
+          opacity="0.7" />
+      </svg>
+    </div>
+  </div>
+
   <!-- Navigation -->
   <nav>
     <div class="logo">~/ eisan.h</div>
@@ -106,6 +288,7 @@
 
 
   <!-- Stats Bar -->
+  <!--
   <div class="stats-bar">
     <div class="stat">
       <div class="stat-num">5+</div>
@@ -121,6 +304,7 @@
     </div>
 
   </div>
+  -->
 
   <!-- Projects Section -->
   <section id="projects">
