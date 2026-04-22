@@ -35,4 +35,33 @@ window.addEventListener('storage', (e) => {
   }
 });
 
+/* ── Project Modal Interactivity ── */
+const droneProject = document.getElementById('drone-project');
+const projectModal = document.getElementById('project-modal');
+const closeModal = document.getElementById('close-modal');
+const modalBackdrop = document.getElementById('modal-backdrop');
+
+if (droneProject && projectModal) {
+  const openModal = () => {
+    projectModal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent scroll
+  };
+
+  const closeBtnAction = () => {
+    projectModal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scroll
+  };
+
+  droneProject.addEventListener('click', openModal);
+  closeModal.addEventListener('click', closeBtnAction);
+  modalBackdrop.addEventListener('click', closeBtnAction);
+
+  // Close on ESC key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+      closeBtnAction();
+    }
+  });
+}
+
 

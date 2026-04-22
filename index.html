@@ -312,7 +312,7 @@
     <h2>Projects <span>&</span> Builds</h2>
     <div class="projects-grid">
 
-      <div class="project-card">
+      <div class="project-card" id="drone-project">
         <div class="card-tag ai">BIG DATA</div>
         <div class="card-title">Energy Consumption Analysis for Drone Delivery</div>
         <div class="card-desc">Analyzed and predicted energy consumption of drones during package delivery missions
@@ -479,6 +479,65 @@
     <span>© 2026 Hnin Ei San </span>
 
   </footer>
+
+  <!-- Project Detail Modal -->
+  <div id="project-modal" class="project-modal">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="logo">~/ case_study.sh</div>
+        <button class="close-modal" id="close-modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+          Close
+        </button>
+      </div>
+      <div class="modal-body">
+        <span class="modal-tag">FEATURED CASE STUDY</span>
+        <h2 class="modal-title">Energy Consumption Analysis for Drone Delivery</h2>
+        <p class="modal-desc-long">
+          This project features a suite of Python-driven analytical tools designed to predict the energy requirements of autonomous drones during package delivery lifecycles. By integrating high-fidelity telemetry data with physical and statistical modeling, the system achieves a deep understanding of flight dynamics and battery performance.
+        </p>
+
+        <div class="case-card-grid">
+          <div class="case-card">
+            <h4>Methodology</h4>
+            <ul>
+              <li>Physical Modeling: Integration of induced power equations with flight dynamics.</li>
+              <li>Big Data: Processing high-frequency telemetry across thousands of flight seconds.</li>
+              <li>Statistical Analysis: Training linear regression models for energy correlation.</li>
+              <li>Verification: Comparative analysis using Average Relative Error (ARE) metrics.</li>
+            </ul>
+          </div>
+          <div class="case-card">
+            <h4>Technical Overview</h4>
+            <ul>
+              <li><strong>Flight Regimes:</strong> Automated detection of takeoff, cruise, and landing phases.</li>
+              <li><strong>Gaussian Filtering:</strong> Applied to altitude-time profiles for noise reduction.</li>
+              <li><strong>Linear Regression:</strong> Correlating physical power with measured battery usage.</li>
+              <li><strong>Validation:</strong> Rigorous testing against unseen telemetry datasets.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case-gallery">
+          <div class="case-img-container">
+            <img src="assets/images/Big Data.png" alt="Methodology Diagram">
+            <div class="case-img-caption">Conceptual architecture and flight phase segmentation methodology.</div>
+          </div>
+          <div class="case-img-container">
+            <img src="assets/images/Big Data(1).png" alt="GHG Results Chart">
+            <div class="case-img-caption">GHG emission comparison between drones and conventional transport.</div>
+          </div>
+          <div class="case-img-container">
+            <img src="assets/images/image(1).png" alt="Data Variables Table">
+            <div class="case-img-caption">Technical Variable description for the processed high-frequency data records.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="assets/js/theme.js"></script>
 
