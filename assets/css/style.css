@@ -610,20 +610,87 @@ h2 span {
   color: var(--green);
 }
 
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3.5rem;
+}
+
+.projects-header h2 {
+  margin-bottom: 0;
+}
+
+@media(max-width: 768px) {
+  .projects-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}
+
+.project-filters {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--bg2);
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--border2);
+  margin-bottom: 2px;
+}
+
+.filter-btn {
+  background: transparent;
+  border: none;
+  color: var(--text3);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.filter-btn:hover {
+  color: var(--text2);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.filter-btn.active {
+  background: var(--green);
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.2);
+}
+
+body.light-mode .filter-btn.active {
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.1);
+}
+
 /* ── Project Cards ── */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media(max-width: 1000px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .project-card {
-  background: rgba(28, 28, 30, 0.4);
+  text-decoration: none;
+  color: inherit;
+  background: rgba(var(--bg-rgb), 0.4);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border);
-  padding: 2.2rem;
-  border-radius: 14px;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -631,6 +698,7 @@ h2 span {
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  padding: 0;
 }
 
 body.light-mode .project-card {
@@ -651,20 +719,41 @@ body.light-mode .project-card:hover {
 }
 
 /* Top bar removed for calmer aesthetic */
-.project-card::before {
-  display: none;
+.project-card-img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.project-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+.project-card-body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 /* Hover line removed */
 
 .card-tag {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   letter-spacing: 0.15em;
-  padding: 3px 8px;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border2);
-  color: var(--text3);
+  color: var(--text2);
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  border-radius: 4px;
 }
 
 .card-tag.robotics {

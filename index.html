@@ -308,79 +308,142 @@
 
   <!-- Projects Section -->
   <section id="projects">
-    <p class="section-label">FEATURED WORK</p>
-    <h2>Projects <span>&</span> Builds</h2>
+    <div class="projects-header">
+      <div>
+        <p class="section-label">FEATURED WORK</p>
+        <h2>Projects <span>&</span> Builds</h2>
+      </div>
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+        <button class="filter-btn" data-filter="robotics">Robotics</button>
+      </div>
+    </div>
     <div class="projects-grid">
 
-      <div class="project-card" id="drone-project">
-        <div class="card-tag ai">BIG DATA</div>
-        <div class="card-title">Energy Consumption Analysis for Drone Delivery</div>
-        <div class="card-desc">Analyzed and predicted energy consumption of drones during package delivery missions
-          using big data processing pipelines and statistical modeling.</div>
-        <div class="card-stack">
-          <span class="stack-tag">Python</span>
-          <span class="stack-tag">Big Data</span>
-          <span class="stack-tag">Pandas</span>
-          <span class="stack-tag">Matplotlib</span>
+      <div class="project-card" id="drone-project" data-category="ai">
+        <div class="project-card-img">
+          <img src="assets/images/project1_1.png" alt="Energy Consumption Analysis 1">
+          <img src="assets/images/project1_2.png" alt="Energy Consumption Analysis 2">
         </div>
-        <div class="card-arrow">↗</div>
+        <div class="project-card-body">
+          <div class="card-tag ai">BIG DATA</div>
+          <div class="card-title">Energy Consumption Analysis for Drone Delivery</div>
+          <div class="card-desc">Analyzed and predicted energy consumption of drones during package delivery missions
+            using big data processing pipelines and statistical modeling.</div>
+          <div class="card-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Big Data</span>
+            <span class="stack-tag">Pandas</span>
+            <span class="stack-tag">Matplotlib</span>
+          </div>
+          <div class="card-arrow">↗</div>
+        </div>
       </div>
 
-      <div class="project-card">
-        <div class="card-tag ai">AI / DATA SCIENCE</div>
-        <div class="card-title">AI Debugging Assistant</div>
-        <div class="card-desc">Automatically detects, explains, and fixes bugs in source code using a LangGraph
-          multi-agent pipeline with LLM reasoning.</div>
-        <div class="card-stack">
-          <span class="stack-tag">Python</span>
-          <span class="stack-tag">LangGraph</span>
-          <span class="stack-tag">LLMs</span>
-          <span class="stack-tag">Agentic AI</span>
+      <div class="project-card" data-category="ai">
+        <div class="project-card-img">
+          <img src="assets/images/Big Data(1).png" alt="AI Debugging Assistant 1">
+          <img src="assets/images/image(1).png" alt="AI Debugging Assistant 2">
         </div>
-        <div class="card-arrow">↗</div>
+        <div class="project-card-body">
+          <div class="card-tag ai">AI / DATA SCIENCE</div>
+          <div class="card-title">AI Debugging Assistant</div>
+          <div class="card-desc">Automatically detects, explains, and fixes bugs in source code using a LangGraph
+            multi-agent pipeline with LLM reasoning.</div>
+          <div class="card-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">LangGraph</span>
+            <span class="stack-tag">LLMs</span>
+            <span class="stack-tag">Agentic AI</span>
+          </div>
+          <div class="card-arrow">↗</div>
+        </div>
       </div>
 
-      <div class="project-card">
-        <div class="card-tag robotics">ROBOTICS</div>
-        <div class="card-title">Transformable Multi-Modal Robotic System</div>
-        <div class="card-desc">Transformable hybrid UAV-UGV platform capable of aerial flight, ground locomotion, and
-          mechanical morphing for visual inspection tasks.</div>
-        <div class="card-stack">
-          <span class="stack-tag">ROS2</span>
-          <span class="stack-tag">Python</span>
-          <span class="stack-tag">UAV/UGV</span>
-          <span class="stack-tag">Embedded</span>
+      <div class="project-card" data-category="robotics">
+        <div class="project-card-img">
+          <img src="assets/images/project3_5.png" alt="Transformable Robotic System 1">
+          <img src="assets/images/project3_4.png" alt="Transformable Robotic System 2">
         </div>
-        <div class="card-arrow">↗</div>
+        <div class="project-card-body">
+          <div class="card-tag robotics">ROBOTICS</div>
+          <div class="card-title">Transformable Multi-Modal Robotic System</div>
+          <div class="card-desc">Transformable hybrid UAV-UGV platform capable of aerial flight, ground locomotion, and
+            mechanical morphing for visual inspection tasks.</div>
+          <div class="card-stack">
+            <span class="stack-tag">ROS2</span>
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">C++</span>
+            <span class="stack-tag">PX4</span>
+            <span class="stack-tag">STM32</span>
+            <span class="stack-tag">Computer Vision</span>
+          </div>
+          <div class="card-arrow">↗</div>
+        </div>
       </div>
 
-      <div class="project-card">
-        <div class="card-tag cv">COMPUTER VISION</div>
-        <div class="card-title">Automated pH Estimation</div>
-        <div class="card-desc">Automated pH level estimation in water samples using test strip color analysis with
-          computer vision algorithms.</div>
-        <div class="card-stack">
-          <span class="stack-tag">Python</span>
-          <span class="stack-tag">OpenCV</span>
-          <span class="stack-tag">NumPy</span>
-          <span class="stack-tag">Color Analysis</span>
+      <div class="project-card" data-category="ai">
+        <div class="project-card-img">
+          <img src="assets/images/project4_2.png" alt="Automated pH Estimation 1">
+          <img src="assets/images/project4_1.png" alt="Automated pH Estimation 2">
         </div>
-        <div class="card-arrow">↗</div>
+        <div class="project-card-body">
+          <div class="card-tag cv">COMPUTER VISION</div>
+          <div class="card-title">Automated pH Estimation</div>
+          <div class="card-desc">Automated pH level estimation of water samples
+            by analyzing color changes on test strips</div>
+          <div class="card-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">OpenCV</span>
+            <span class="stack-tag">KNN</span>
+            <span class="stack-tag">K-means clustering</span>
+
+          </div>
+          <div class="card-arrow">↗</div>
+        </div>
       </div>
 
-      <div class="project-card">
-        <div class="card-tag ai">MACHINE LEARNING</div>
-        <div class="card-title">Vision Transformer &amp; MLP-Mixer</div>
-        <div class="card-desc">Implemented standard Transformer to Supervised Pre-Training for image classification and
-          Self-Supervised Pre-Training for segmentation tasks.</div>
-        <div class="card-stack">
-          <span class="stack-tag">PyTorch</span>
-          <span class="stack-tag">ViT</span>
-          <span class="stack-tag">MLP-Mixer</span>
-          <span class="stack-tag">Self-Supervised</span>
+      <div class="project-card" data-category="ai">
+        <div class="project-card-img">
+          <img src="assets/images/Big Data(1).png" alt="Vision Transformer 1">
+          <img src="assets/images/image(1).png" alt="Vision Transformer 2">
         </div>
-        <div class="card-arrow">↗</div>
+        <div class="project-card-body">
+          <div class="card-tag ai">MACHINE LEARNING</div>
+          <div class="card-title">Vision Transformer &amp; MLP-Mixer</div>
+          <div class="card-desc">Implemented standard Transformer to Supervised Pre-Training for image classification
+            and
+            Self-Supervised Pre-Training for segmentation tasks.</div>
+          <div class="card-stack">
+            <span class="stack-tag">PyTorch</span>
+            <span class="stack-tag">ViT</span>
+            <span class="stack-tag">MLP-Mixer</span>
+            <span class="stack-tag">Self-Supervised</span>
+          </div>
+          <div class="card-arrow">↗</div>
+        </div>
       </div>
+
+      <a href="aiforasia.pdf" target="_blank" class="project-card" data-category="ai">
+        <div class="project-card-img">
+          <img src="assets/images/aiforasia1.png" alt="LLM & RAG 1">
+          <img src="assets/images/aiforasia2.png" alt="LLM & RAG 2">
+        </div>
+        <div class="project-card-body">
+          <div class="card-tag ai">AI</div>
+          <div class="card-title">AI-Enabled Framework for Strengthening University–Industry Collaboration</div>
+          <div class="card-desc">The study proposes an AI-enabled UIC system with two stages: a pre-collaboration tool
+            that matches suitable partners and evaluates their credibility, and a post-collaboration system that
+            provides structured guidance for implementation.</div>
+          <div class="card-stack">
+            <span class="stack-tag">Recommendation systems</span>
+            <span class="stack-tag">Innovation ecosystems</span>
+            <span class="stack-tag">Credibility assessment</span>
+          </div>
+          <div class="card-arrow">↗</div>
+        </div>
+      </a>
 
     </div>
   </section>
@@ -497,26 +560,39 @@
         <span class="modal-tag">FEATURED CASE STUDY</span>
         <h2 class="modal-title">Energy Consumption Analysis for Drone Delivery</h2>
         <p class="modal-desc-long">
-          This project features a suite of Python-driven analytical tools designed to predict the energy requirements of autonomous drones during package delivery lifecycles. By integrating high-fidelity telemetry data with physical and statistical modeling, the system achieves a deep understanding of flight dynamics and battery performance.
+          This project is designed to predict the energy requirements of autonomous drones during package delivery
+          lifecycles. By integrating high-fidelity telemetry data with physical and statistical modeling, the system
+          achieves an understanding of flight dynamics and battery performance.
         </p>
 
         <div class="case-card-grid">
-          <div class="case-card">
-            <h4>Methodology</h4>
-            <ul>
-              <li>Physical Modeling: Integration of induced power equations with flight dynamics.</li>
-              <li>Big Data: Processing high-frequency telemetry across thousands of flight seconds.</li>
-              <li>Statistical Analysis: Training linear regression models for energy correlation.</li>
-              <li>Verification: Comparative analysis using Average Relative Error (ARE) metrics.</li>
-            </ul>
-          </div>
+
           <div class="case-card">
             <h4>Technical Overview</h4>
             <ul>
-              <li><strong>Flight Regimes:</strong> Automated detection of takeoff, cruise, and landing phases.</li>
-              <li><strong>Gaussian Filtering:</strong> Applied to altitude-time profiles for noise reduction.</li>
-              <li><strong>Linear Regression:</strong> Correlating physical power with measured battery usage.</li>
-              <li><strong>Validation:</strong> Rigorous testing against unseen telemetry datasets.</li>
+              <li><strong>Identify Flight Regimes :</strong> Automatically detect takeoff, cruise, and landing phases
+                using altitude-time profiles and Gaussian filtering.</li>
+              <li><strong>Calculate Physic Components :</strong> Compute induced power and other energy-related metrics
+                based on flight dynamics and environmental conditions.</li>
+              <li><strong>Model Energy Consumption :</strong> Train a linear regression model that correlates physical
+                power requirements with measured battery usage.</li>
+              <li><strong>Validate Model :</strong> Estimate energy consumption for test flights and evaluate accuracy
+                using Average Relative Error (ARE).</li>
+            </ul>
+          </div>
+
+          <div class="case-card">
+            <h4>Analytics & Results</h4>
+            <ul>
+              <li><strong>Environmental Impact :</strong> Evaluated CO₂ reduction potential, demonstrating drones as a
+                sustainable alternative for last-mile delivery.</li>
+              <li><strong>Model Reliability :</strong> Achieved high precision regression results, validated against
+                real-world test flight data using ARE metrics.</li>
+              <li><strong>Variable Correlation :</strong> Identified key drivers of battery discharge, providing
+                insights
+                into how payload affects energy usage.</li>
+              <li><strong>Actionable Data :</strong> Developed a pipeline for processing telemetry data, enabling
+                better path planning for autonomous missions.</li>
             </ul>
           </div>
         </div>
@@ -532,7 +608,8 @@
           </div>
           <div class="case-img-container">
             <img src="assets/images/image(1).png" alt="Data Variables Table">
-            <div class="case-img-caption">Technical Variable description for the processed high-frequency data records.</div>
+            <div class="case-img-caption">Technical Variable description for the processed high-frequency data records.
+            </div>
           </div>
         </div>
       </div>

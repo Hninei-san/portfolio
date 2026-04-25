@@ -64,4 +64,37 @@ if (droneProject && projectModal) {
   });
 }
 
+/* ── Project Filtering ── */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Update active button
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.getAttribute('data-filter');
+
+    projectCards.forEach(card => {
+      const category = card.getAttribute('data-category');
+      
+      if (filter === 'all' || category === filter) {
+        card.style.display = 'flex';
+        // Force a reflow for animation
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0) scale(1)';
+        }, 10);
+      } else {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px) scale(0.95)';
+        setTimeout(() => {
+          card.style.display = 'none';
+        }, 300);
+      }
+    });
+  });
+});
+
 
