@@ -63,6 +63,114 @@ if (droneProject && projectModal) {
   });
 }
 
+const aiDebuggerProject = document.getElementById('ai-debugger-project');
+const aiDebuggerModal = document.getElementById('ai-debugger-modal');
+const closeAiDebuggerModal = document.getElementById('close-ai-debugger-modal');
+const aiDebuggerBackdrop = document.getElementById('ai-debugger-backdrop');
+
+if (aiDebuggerProject && aiDebuggerModal) {
+  const openAiModal = () => {
+    aiDebuggerModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeAiBtnAction = () => {
+    aiDebuggerModal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  aiDebuggerProject.addEventListener('click', openAiModal);
+  closeAiDebuggerModal.addEventListener('click', closeAiBtnAction);
+  aiDebuggerBackdrop.addEventListener('click', closeAiBtnAction);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && aiDebuggerModal.classList.contains('active')) {
+      closeAiBtnAction();
+    }
+  });
+}
+
+const roboticsProject = document.getElementById('robotics-system-project');
+const roboticsModal = document.getElementById('robotics-system-modal');
+const closeRoboticsModal = document.getElementById('close-robotics-system-modal');
+const roboticsBackdrop = document.getElementById('robotics-system-backdrop');
+
+if (roboticsProject && roboticsModal) {
+  const openRoboticsModal = () => {
+    roboticsModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeRoboticsBtnAction = () => {
+    roboticsModal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  roboticsProject.addEventListener('click', openRoboticsModal);
+  closeRoboticsModal.addEventListener('click', closeRoboticsBtnAction);
+  roboticsBackdrop.addEventListener('click', closeRoboticsBtnAction);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && roboticsModal.classList.contains('active')) {
+      closeRoboticsBtnAction();
+    }
+  });
+}
+
+const phProject = document.getElementById('ph-estimation-project');
+const phModal = document.getElementById('ph-estimation-modal');
+const closePhModal = document.getElementById('close-ph-estimation-modal');
+const phBackdrop = document.getElementById('ph-estimation-backdrop');
+
+if (phProject && phModal) {
+  const openPhModal = () => {
+    phModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closePhBtnAction = () => {
+    phModal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  phProject.addEventListener('click', openPhModal);
+  closePhModal.addEventListener('click', closePhBtnAction);
+  phBackdrop.addEventListener('click', closePhBtnAction);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && phModal.classList.contains('active')) {
+      closePhBtnAction();
+    }
+  });
+}
+
+const heightProject = document.getElementById('height-measurement-project');
+const heightModal = document.getElementById('height-measurement-modal');
+const closeHeightModal = document.getElementById('close-height-modal');
+const heightBackdrop = document.getElementById('height-measurement-backdrop');
+
+if (heightProject && heightModal) {
+  const openHeightModal = () => {
+    heightModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeHeightBtnAction = () => {
+    heightModal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  heightProject.addEventListener('click', openHeightModal);
+  closeHeightModal.addEventListener('click', closeHeightBtnAction);
+  heightBackdrop.addEventListener('click', closeHeightBtnAction);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && heightModal.classList.contains('active')) {
+      closeHeightBtnAction();
+    }
+  });
+}
+
 /* ── Education Modal Interactivity ── */
 const educationCard = document.getElementById('education-card');
 const educationModal = document.getElementById('education-modal');

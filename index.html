@@ -340,7 +340,7 @@
         </div>
       </div>
 
-      <div class="project-card" data-category="ai">
+      <div class="project-card" id="ai-debugger-project" data-category="ai">
         <div class="project-card-img">
           <img src="assets/images/Big Data(1).png" alt="AI Debugging Assistant 1">
           <img src="assets/images/image(1).png" alt="AI Debugging Assistant 2">
@@ -360,7 +360,7 @@
         </div>
       </div>
 
-      <div class="project-card" data-category="robotics">
+      <div class="project-card" id="robotics-system-project" data-category="robotics">
         <div class="project-card-img">
           <img src="assets/images/project3_5.png" alt="Transformable Robotic System 1">
           <img src="assets/images/project3_4.png" alt="Transformable Robotic System 2">
@@ -383,7 +383,7 @@
         </div>
       </div>
 
-      <div class="project-card" data-category="ai">
+      <div class="project-card" id="ph-estimation-project" data-category="ai">
         <div class="project-card-img">
           <img src="assets/images/project4_2.png" alt="Automated pH Estimation 1">
           <img src="assets/images/project4_1.png" alt="Automated pH Estimation 2">
@@ -445,10 +445,10 @@
         </div>
       </a>
 
-      <div class="project-card" data-category="ai">
+      <div class="project-card" id="height-measurement-project" data-category="ai">
         <div class="project-card-img">
-          <img src="assets/images/height_cv1.png" alt="Height Measurement 1">
-          <img src="assets/images/height_cv2.png" alt="Height Measurement 2">
+          <img src="assets/images/height.png" alt="Height Measurement 1">
+          <img src="assets/images/height.png" alt="Height Measurement 2">
         </div>
         <div class="project-card-body">
           <div class="card-tag cv">COMPUTER VISION</div>
@@ -458,7 +458,9 @@
           <div class="card-stack">
             <span class="stack-tag">OpenCV</span>
             <span class="stack-tag">NumPy</span>
-            <span class="stack-tag">Monocular Depth Estimation</span>
+            <span class="stack-tag">Pose Estimation</span>
+            <span class="stack-tag">Object Detection</span>
+            <span class="stack-tag">Flask</span>
           </div>
           <div class="card-arrow">↗</div>
         </div>
@@ -681,7 +683,17 @@
       </div>
       <div class="modal-body">
         <span class="modal-tag">FEATURED CASE STUDY</span>
-        <h2 class="modal-title">Energy Consumption Analysis for Drone Delivery</h2>
+        <div style="display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem;">
+          <h2 class="modal-title" style="margin-bottom: 0;">Energy Consumption Analysis for Drone Delivery</h2>
+          <a href="https://github.com/Hninei-san/Energy-Consumption-Analysis-and-Prediction-for-Drone-Based-Package-Delivery"
+            target="_blank" class="github-link" style="color: var(--text3); transition: color 0.2s;"
+            onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text3)'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.22-3.33.72-4.035-1.41-4.035-1.41-.54-1.38-1.32-1.755-1.32-1.755-1.08-.735.075-.72.075-.72 1.205.085 1.835 1.24 1.835 1.24 1.07 1.835 2.805 1.305 3.495.995.105-.775.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.125.81 2.265 0 1.635-.015 2.955-.015 3.345 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
+        </div>
         <p class="modal-desc-long">
           This project is designed to predict the energy requirements of autonomous drones during package delivery
           lifecycles. By integrating high-fidelity telemetry data with physical and statistical modeling, the system
@@ -693,13 +705,13 @@
           <div class="case-card">
             <h4>Technical Overview</h4>
             <ul>
-              <li><strong>Identify Flight Regimes :</strong> Automatically detect takeoff, cruise, and landing phases
+              <li>Automatically detect takeoff, cruise, and landing phases
                 using altitude-time profiles and Gaussian filtering.</li>
-              <li><strong>Calculate Physic Components :</strong> Compute induced power and other energy-related metrics
+              <li>Compute induced power and other energy-related metrics
                 based on flight dynamics and environmental conditions.</li>
-              <li><strong>Model Energy Consumption :</strong> Train a linear regression model that correlates physical
+              <li>Train a linear regression model that correlates physical
                 power requirements with measured battery usage.</li>
-              <li><strong>Validate Model :</strong> Estimate energy consumption for test flights and evaluate accuracy
+              <li>Estimate energy consumption for test flights and evaluate accuracy
                 using Average Relative Error (ARE).</li>
             </ul>
           </div>
@@ -707,14 +719,13 @@
           <div class="case-card">
             <h4>Analytics & Results</h4>
             <ul>
-              <li><strong>Environmental Impact :</strong> Evaluated CO₂ reduction potential, demonstrating drones as a
+              <li>Evaluated CO₂ reduction potential, demonstrating drones as a
                 sustainable alternative for last-mile delivery.</li>
-              <li><strong>Model Reliability :</strong> Achieved high precision regression results, validated against
+              <li>Achieved high precision regression results, validated against
                 real-world test flight data using ARE metrics.</li>
-              <li><strong>Variable Correlation :</strong> Identified key drivers of battery discharge, providing
-                insights
-                into how payload affects energy usage.</li>
-              <li><strong>Actionable Data :</strong> Developed a pipeline for processing telemetry data, enabling
+              <li>Identified key drivers of battery discharge, providing
+                insights into how payload affects energy usage.</li>
+              <li>Developed a pipeline for processing telemetry data, enabling
                 better path planning for autonomous missions.</li>
             </ul>
           </div>
@@ -756,7 +767,7 @@
         <span class="modal-tag">King Mongkut's Institute of Technology Ladkrabang</span>
         <h2 class="modal-title">Robotics & AI Engineering</h2>
 
-        <div class="case-card-grid" style="grid-template-columns: 1fr;">
+        <div class="case-card-grid">
           <div class="case-card">
             <h4>Highlights</h4>
             <ul>
@@ -813,6 +824,293 @@
                 <span style="color: var(--green); opacity: 0.6;"></span> Robotics Laboratory
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Debugger Detail Modal -->
+  <div id="ai-debugger-modal" class="project-modal">
+    <div class="modal-backdrop" id="ai-debugger-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="logo">~/ ai_debugger_overview.sh</div>
+        <button class="close-modal" id="close-ai-debugger-modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+          Close
+        </button>
+      </div>
+      <div class="modal-body">
+        <span class="modal-tag">AGENTIC AI CASE STUDY</span>
+        <div style="display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem;">
+          <h2 class="modal-title" style="margin-bottom: 0;">AI Debugging Assistant</h2>
+          <a href="https://github.com/Hninei-san/AI-Debugging-Assistant" target="_blank" class="github-link"
+            style="color: var(--text3); transition: color 0.2s;" onmouseover="this.style.color='var(--text)'"
+            onmouseout="this.style.color='var(--text3)'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.22-3.33.72-4.035-1.41-4.035-1.41-.54-1.38-1.32-1.755-1.32-1.755-1.08-.735.075-.72.075-.72 1.205.085 1.835 1.24 1.835 1.24 1.07 1.835 2.805 1.305 3.495.995.105-.775.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.125.81 2.265 0 1.635-.015 2.955-.015 3.345 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
+        </div>
+        <p class="modal-desc-long">
+          Modern software debugging is often time-consuming. This assistant leverages a multi-agent orchestration
+          framework using LangGraph to automate the detection, analysis, and fixing of bugs within Python applications,
+          simulating a senior developer's reasoning process.
+        </p>
+
+        <div class="case-card-grid">
+          <div class="case-card">
+            <h4>Technical Overview</h4>
+            <ul>
+              <li>Orchestrates specialized agents (Scanner, Explainer, Fixer) utilizing LangGraph for complex iterative
+                reasoning.</li>
+              <li>Employs advanced LLMs to perform deep semantic analysis of codebases to identify subtle logical
+                errors.
+              </li>
+              <li>Generates and validates precise code fixes, ensuring high reliability through integrated verification.
+              </li>
+              <li>Uses feedback loops to continuously improve fix suggestions until the detected bug is resolved.</li>
+            </ul>
+          </div>
+
+          <div class="case-card">
+            <h4>Analytics & Results</h4>
+            <ul>
+              <li>Significantly reduced debugging time for complex Python applications by providing clear explanations
+                and fixes.</li>
+              <li>Successfully processed multi-file repositories with interdependent modules, demonstrating the
+                robustness of the approach.</li>
+              <li>High success rate in identifying and fixing edge cases that traditional static analysis tools often
+                miss.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Robotics System Detail Modal -->
+  <div id="robotics-system-modal" class="project-modal">
+    <div class="modal-backdrop" id="robotics-system-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="logo">~/ robotics_system_overview.sh</div>
+        <button class="close-modal" id="close-robotics-system-modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+          Close
+        </button>
+      </div>
+      <div class="modal-body">
+        <span class="modal-tag">HYBRID ROBOTICS CASE STUDY</span>
+        <div style="display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem;">
+          <h2 class="modal-title" style="margin-bottom: 0;">Transformable Multi-Modal Robotic System</h2>
+          <a href="https://github.com/thura-robotics/Hybrid_UAV-UGV" target="_blank" class="github-link"
+            style="color: var(--text3); transition: color 0.2s;" onmouseover="this.style.color='var(--text)'"
+            onmouseout="this.style.color='var(--text3)'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.22-3.33.72-4.035-1.41-4.035-1.41-.54-1.38-1.32-1.755-1.32-1.755-1.08-.735.075-.72.075-.72 1.205.085 1.835 1.24 1.835 1.24 1.07 1.835 2.805 1.305 3.495.995.105-.775.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.125.81 2.265 0 1.635-.015 2.955-.015 3.345 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
+        </div>
+        <p class="modal-desc-long">
+          Development of a hybrid UAV-UGV platform capable of seamless transitions between aerial and terrestrial
+          locomotion for enhanced operational versatility in complex environments.
+        </p>
+
+        <!-- <div class="case-card-grid">
+          <div class="case-card">
+            <h4>Technical Overview</h4>
+            <ul>
+              <li>Developed a specialized control architecture that enables smooth transitioning between flight (UAV
+                mode) and ground movement (UGV mode).</li>
+              <li>Programmed the flight controller and ground drive logic, optimized for real-time response during
+                high-stakes transitions.</li>
+              <li>Engineered a transformable chassis that reconfigures its physical state to optimize for aerodynamic
+                stability or terrestrial power efficiency.</li>
+              <li>Integrated multi-modal sensor arrays (LiDAR, IMU, GPS) to maintain state awareness during both aerial
+                and ground phases.</li>
+            </ul>
+          </div>
+
+          <div class="case-card">
+            <h4>Analytics & Results</h4>
+            <ul>
+              <li>Successfully demonstrated the platform's ability to navigate through narrow terrestrial passages and
+                bypass vertical obstacles via flight.</li>
+              <li>Achieved a significant increase in mission duration by utilizing energy-efficient ground locomotion
+                whenever flight was not required.</li>
+              <li>Completed a series of rigorous field tests in simulated "search and rescue" scenarios, verifying the
+                reliability of the transformation mechanism.</li>
+            </ul>
+          </div>
+        </div> -->
+
+        <div class="case-gallery">
+          <div class="case-img-container">
+            <img src="assets/images/poster.png" alt="poster">
+            <div class="case-img-caption">Poster</div>
+          </div>
+          <div class="case-img-container">
+            <img src="assets/images/project3_5.png" alt="Transformation Mechanism">
+            <div class="case-img-caption">Physical transformation mechanism engaged during UAV-to-UGV transition.</div>
+          </div>
+          <div class="case-img-container">
+            <img src="assets/images/project3_4.png" alt="Embedded Controller">
+            <div class="case-img-caption">Custom embedded control board for multi-modal operation.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pH Estimation Detail Modal -->
+  <div id="ph-estimation-modal" class="project-modal">
+    <div class="modal-backdrop" id="ph-estimation-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="logo">~/ ph_estimation_overview.sh</div>
+        <button class="close-modal" id="close-ph-estimation-modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+          Close
+        </button>
+      </div>
+      <div class="modal-body">
+        <span class="modal-tag">COMPUTER VISION CASE STUDY</span>
+        <div style="display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem;">
+          <h2 class="modal-title" style="margin-bottom: 0;">Automated pH Estimation</h2>
+          <a href="https://github.com/Hninei-san/Automated-pH-Estimation-using-Computer-Vision-" target="_blank"
+            class="github-link" style="color: var(--text3); transition: color 0.2s;"
+            onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text3)'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.22-3.33.72-4.035-1.41-4.035-1.41-.54-1.38-1.32-1.755-1.32-1.755-1.08-.735.075-.72.075-.72 1.205.085 1.835 1.24 1.835 1.24 1.07 1.835 2.805 1.305 3.495.995.105-.775.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.125.81 2.265 0 1.635-.015 2.955-.015 3.345 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
+        </div>
+        <p class="modal-desc-long">
+          An automated system for pH level estimation using computer vision and machine learning, designed to provide
+          accurate and real-time analysis of chemical indicator strips.
+        </p>
+
+        <div class="case-card-grid">
+          <div class="case-card">
+            <h4>Technical Overview</h4>
+            <ul>
+              <li>Developed a CV-based pipeline that automatically segments pH indicator strips and extracts precise
+                color values from test regions.</li>
+              <li>Implemented a robust normalization algorithm that uses a reference color chart to account for varied
+                lighting conditions.</li>
+              <li>Trained regression models to map extracted RGB/HSV color vectors to precise pH values, achieving high
+                numerical accuracy.</li>
+              <li>Optimized the image processing workflow to enable real-time pH estimation on embedded devices and
+                mobile platforms.</li>
+            </ul>
+          </div>
+
+          <div class="case-card">
+            <h4>Analytics & Results</h4>
+            <ul>
+              <li>Achieved a mean absolute error (MAE) of less than 0.1 pH units, consistently outperforming human
+                subjects in controlled testing.</li>
+              <li>Successfully validated the system's performance across varied lighting environments through advanced
+                white balancing.</li>
+              <li>Demonstrated the potential for low-cost, automated chemical analysis in agricultural monitoring
+                applications.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case-gallery">
+          <div class="case-img-container">
+            <img src="assets/images/project4_2.png" alt="Color Segmentation">
+            <div class="case-img-caption">Automatic segmentation of indicator regions from laboratory image data.</div>
+          </div>
+          <div class="case-img-container">
+            <img src="assets/images/project4_1.png" alt="pH Regression Results">
+            <div class="case-img-caption">Regression model performance across the full pH spectrum.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Height Measurement Detail Modal -->
+  <div id="height-measurement-modal" class="project-modal">
+    <div class="modal-backdrop" id="height-measurement-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="logo">~/ height_measurement_overview.sh</div>
+        <button class="close-modal" id="close-height-modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+          Close
+        </button>
+      </div>
+      <div class="modal-body">
+        <span class="modal-tag">COMPUTER VISION CASE STUDY</span>
+        <div style="display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem;">
+          <h2 class="modal-title" style="margin-bottom: 0;">Height Measurement from a Single Camera View</h2>
+          <a href="https://github.com/pyaehtookhant/Height-Detection" target="_blank" class="github-link"
+            style="color: var(--text3); transition: color 0.2s;" onmouseover="this.style.color='var(--text)'"
+            onmouseout="this.style.color='var(--text3)'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.22-3.33.72-4.035-1.41-4.035-1.41-.54-1.38-1.32-1.755-1.32-1.755-1.08-.735.075-.72.075-.72 1.205.085 1.835 1.24 1.835 1.24 1.07 1.835 2.805 1.305 3.495.995.105-.775.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.125.81 2.265 0 1.635-.015 2.955-.015 3.345 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
+        </div>
+        <p class="modal-desc-long">
+          A computer vision system designed to accurately estimate the height of objects or individuals from a single
+          calibrated camera view using geometric perspective and reference objects.
+        </p>
+
+        <div class="case-card-grid">
+          <div class="case-card">
+            <h4>Technical Overview</h4>
+            <ul>
+              <li>Implemented a geometric reasoning engine that utilizes vanishing points and horizon line detection to
+                project real-world heights.</li>
+              <li>Developed an automated calibration routine using objects of known height to establish pixel-to-metric
+                conversion factors.</li>
+              <li>Integrated YOLO-based models to automatically detect and segment individuals or objects for
+                measurement within the frame.</li>
+              <li>Developed noise-reduction filters to account for lens distortion and camera tilt, ensuring stability
+                across viewing angles.</li>
+            </ul>
+          </div>
+
+          <div class="case-card">
+            <h4>Analytics & Results</h4>
+            <ul>
+              <li>Achieved a deviation of less than 3% compared to physical measurements at distances up to 10 meters.
+              </li>
+              <li>Optimized for low-latency performance, enabling real-time height estimation for surveillance
+                applications.</li>
+              <li>Demonstrated a streamlined setup process requiring only a single reference object for calibration.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case-gallery">
+          <div class="case-img-container">
+            <img src="assets/images/height.png" alt="Geometric Construction">
+            <div class="case-img-caption">Visualizing the geometric perspective lines and horizon detection for height
+              inference.</div>
+          </div>
+          <div class="case-img-container">
+            <img src="assets/images/height_cv2.png" alt="Measurement UI">
+            <div class="case-img-caption">Real-time measurement overlay during various laboratory test scenarios.</div>
           </div>
         </div>
       </div>
