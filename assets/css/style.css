@@ -660,7 +660,7 @@ body.light-mode .filter-btn.active {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -686,6 +686,93 @@ body.light-mode .project-card:hover {
   border-color: rgba(0, 0, 0, 0.2);
   background: rgba(0, 0, 0, 0.02);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+/* ── Interactive Education Card (Separate from Project Filtering) ── */
+#education-card {
+  /* Base card styles (copied from project-card but isolated from filtering JS) */
+  background: rgba(var(--bg-rgb, 28, 28, 30), 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  
+  /* Layout overrides */
+  padding: 2.2rem;
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  gap: 2.2rem;
+  cursor: pointer;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+body.light-mode #education-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+  #education-card, .education-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+}
+
+#education-card .honor-icon, .education-card .honor-icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#education-card .honor-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#education-card h3 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+#education-card p {
+  font-weight: 500;
+  color: var(--text2);
+  font-size: 1rem;
+  margin: 0;
+}
+
+#education-card .edu-date {
+  font-size: 0.85rem;
+  color: var(--text3);
+  margin-top: 8px;
+  letter-spacing: 0.05em;
+  font-family: 'DM Mono', monospace;
+}
+
+#education-card:hover {
+  /* Override project-card hover with honor-card hover */
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-mode #education-card:hover {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
 }
 
 /* Top bar removed for calmer aesthetic */
@@ -723,7 +810,7 @@ body.light-mode .project-card:hover {
   color: var(--text2);
   display: inline-block;
   margin-bottom: 1.2rem;
-  border-radius: 4px;
+  border-radius: 12px;
 }
 
 .card-tag.robotics {
@@ -832,17 +919,6 @@ body.light-mode .project-card:hover {
   cursor: default;
 }
 
-.skill-tag:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-body.light-mode .skill-tag:hover {
-  border-color: rgba(0, 0, 0, 0.2);
-  background: rgba(0, 0, 0, 0.02);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
 
 /* Icons/Logo place holders (can be added later if needed) */
 .skill-tag::before {
@@ -953,16 +1029,25 @@ body.light-mode .resume-viewer-container {
 }
 
 .honor-card {
-  background: var(--bg2);
-  border: 1px solid var(--border2);
-  border-radius: 4px;
+  background: rgba(var(--bg-rgb, 28, 28, 30), 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
   padding: 1.8rem;
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+body.light-mode .honor-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .honor-card:hover {
@@ -994,6 +1079,12 @@ body.light-mode .honor-card {
   background: var(--bg2);
   border: 1px solid var(--border2);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.honor-card:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .honor-card:hover {
