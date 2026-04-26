@@ -44,22 +44,49 @@ const modalBackdrop = document.getElementById('modal-backdrop');
 if (droneProject && projectModal) {
   const openModal = () => {
     projectModal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent scroll
+    document.body.style.overflow = 'hidden';
   };
 
   const closeBtnAction = () => {
     projectModal.classList.remove('active');
-    document.body.style.overflow = ''; // Restore scroll
+    document.body.style.overflow = '';
   };
 
   droneProject.addEventListener('click', openModal);
   closeModal.addEventListener('click', closeBtnAction);
   modalBackdrop.addEventListener('click', closeBtnAction);
 
-  // Close on ESC key
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && projectModal.classList.contains('active')) {
       closeBtnAction();
+    }
+  });
+}
+
+/* ── Education Modal Interactivity ── */
+const educationCard = document.getElementById('education-card');
+const educationModal = document.getElementById('education-modal');
+const closeEduModal = document.getElementById('close-edu-modal');
+const eduModalBackdrop = document.getElementById('edu-modal-backdrop');
+
+if (educationCard && educationModal) {
+  const openEduModal = () => {
+    educationModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeEduBtnAction = () => {
+    educationModal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  educationCard.addEventListener('click', openEduModal);
+  closeEduModal.addEventListener('click', closeEduBtnAction);
+  eduModalBackdrop.addEventListener('click', closeEduBtnAction);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && educationModal.classList.contains('active')) {
+      closeEduBtnAction();
     }
   });
 }

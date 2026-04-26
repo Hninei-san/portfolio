@@ -43,13 +43,7 @@
       </svg>
     </div>
 
-    <!-- 2. Feynman Quote (vertical) -->
-    <div class="bg-illustration illus-quote">
-      <blockquote class="vertical-quote">
-        "We need to teach how doubt is not to be feared but welcomed. It's OK to say, 'I don't know.'"
-        <cite>— Richard Feynman</cite>
-      </blockquote>
-    </div>
+
 
     <!-- 3. Single Neuron (bottom-left) -->
     <div class="bg-illustration illus-neuron">
@@ -205,6 +199,7 @@
       <a href="#about">about</a>
       <a href="#projects">projects</a>
       <a href="#skills">skills</a>
+      <a href="#education">education</a>
       <a href="#honors">honors</a>
       <a href="#contact">contact</a>
       <a href="resume.html">resume</a>
@@ -256,14 +251,17 @@
     <div class="about-grid">
       <div>
         <div class="about-text">
-          <p>I'm an AI &amp; Robotics Engineering graduate from KMITL with internship experience at
-            <span class="highlight">Ford Motor Company</span> and <span class="highlight">Infineon Technologies</span>.
-            I build end-to-end AI solutions from data pipelines and dashboards to computer vision systems.
+          <p>Hi, I’m Hnin Ei San.</p>
+          <p>I recently graduated in Robotics &amp; AI Engineering from KMITL, and along the way I gained experience
+            through internships at <span class="highlight">Ford Motor Company</span> and <span
+              class="highlight">Infineon Technologies</span>.
+          <p>I build end-to-end AI products that actually feel good to use where both the user experience and the code
+            behind it are thoughtfully designed. I enjoy working across data analytics, machine learning, computer
+            vision, deep learning, LLMs, and RAG
+            pipelines basically, whatever the problem needs.
           </p>
-          <p>My interests span data analytics, machine learning, LLMs, RAG pipelines, deep learning and computer vision.
-          </p>
-          <p>Currently based in <span class="highlight">Bangkok, Thailand</span> and open to full-time roles
-            and international opportunities.</p>
+          <p>Currently based in <span class="highlight">Bangkok, Thailand</span> and open to full-time roles and
+            international opportunities.</p>
         </div>
       </div>
       <div class="hero-terminal">
@@ -447,6 +445,25 @@
         </div>
       </a>
 
+      <div class="project-card" data-category="ai">
+        <div class="project-card-img">
+          <img src="assets/images/height_cv1.png" alt="Height Measurement 1">
+          <img src="assets/images/height_cv2.png" alt="Height Measurement 2">
+        </div>
+        <div class="project-card-body">
+          <div class="card-tag cv">COMPUTER VISION</div>
+          <div class="card-title">Height Measurement from a Single Camera View</div>
+          <div class="card-desc">Developed a computer vision system for measuring height from the single camera
+            perspective using monocular depth estimation models.</div>
+          <div class="card-stack">
+            <span class="stack-tag">OpenCV</span>
+            <span class="stack-tag">NumPy</span>
+            <span class="stack-tag">Monocular Depth Estimation</span>
+          </div>
+          <div class="card-arrow">↗</div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -517,8 +534,31 @@
     </div>
   </section>
 
-
-
+  <!-- Education Section -->
+  <section id="education">
+    <p class="section-label">ACADEMIC BACKGROUND</p>
+    <h2>Education</h2>
+    <div class="honors-grid">
+      <div class="project-card" id="education-card"
+        style="cursor: pointer; position: relative; padding: 2.2rem; display: flex; flex-direction: row; align-items: center; gap: 2rem; backface-visibility: hidden; transform: translateZ(0);">
+        <div class="honor-icon"
+          style="flex-shrink: 0; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+          <img src="assets/images/uni1.png" alt="KMITL Logo" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <div class="project-card-info">
+          <h3
+            style="font-family: 'IBM Plex Sans', sans-serif; font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text);">
+            Bachelor of Engineering in Robotics & AI</h3>
+          <p style="font-weight: 500; color: var(--text2); font-size: 1rem;">King Mongkut's Institute of Technology
+            Ladkrabang (KMITL)</p>
+          <p
+            style="font-size: 0.85rem; color: var(--text3); margin-top: 8px; letter-spacing: 0.05em; font-family: 'DM Mono', monospace;">
+            2022 — 2026</p>
+        </div>
+        <div class="card-arrow">↗</div>
+      </div>
+    </div>
+  </section>
 
   <!-- Honors Section -->
   <section id="honors">
@@ -700,6 +740,67 @@
             <img src="assets/images/image(1).png" alt="Data Variables Table">
             <div class="case-img-caption">Technical Variable description for the processed high-frequency data records.
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education Detail Modal -->
+  <div id="education-modal" class="project-modal">
+    <div class="modal-backdrop" id="edu-modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="logo">~/ education_details.sh</div>
+        <button class="close-modal" id="close-edu-modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+          Close
+        </button>
+      </div>
+      <div class="modal-body">
+        <span class="modal-tag">KMITL — ACADEMIC BACKGROUND</span>
+        <h2 class="modal-title">Robotics & AI Engineering</h2>
+
+        <div class="case-card-grid">
+          <div class="case-card">
+            <h4>Highlights</h4>
+            <ul>
+              <li><strong>Scholarship:</strong> KMITL Freshman Scholarship Recipient</li>
+              <li><strong>Physics Lab I:</strong> Teacher Assistant</li>
+              <li><strong>Physics Lab II:</strong> Teacher Assistant</li>
+              <li><strong>Intro to AI:</strong> Teacher Assistant</li>
+              <li><strong>GPA:</strong> 3.64/4.00</li>
+            </ul>
+          </div>
+
+          <div class="case-card">
+            <h4>Coursework</h4>
+            <div
+              style="font-size: 0.82rem; color: var(--text3); margin-bottom: 1.2rem; font-family: monospace; letter-spacing: 0.05em;">
+              SELECTED TECHNICAL COURSES</div>
+            <ul class="stack-list"
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; list-style: none;">
+              <li style="font-size: 0.9rem; color: var(--text2); display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--green); opacity: 0.6;"></span> Data Structures
+              </li>
+              <li style="font-size: 0.9rem; color: var(--text2); display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--green); opacity: 0.6;"></span> Distributed OS
+              </li>
+              <li style="font-size: 0.9rem; color: var(--text2); display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--green); opacity: 0.6;"></span> Computer Networks
+              </li>
+              <li style="font-size: 0.9rem; color: var(--text2); display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--green); opacity: 0.6;"></span> Software Engineering
+              </li>
+              <li style="font-size: 0.9rem; color: var(--text2); display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--green); opacity: 0.6;"></span> Database Management Systems
+              </li>
+              <li style="font-size: 0.9rem; color: var(--text2); display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--green); opacity: 0.6;"></span> Data Mining and Analysis
+              </li>
+            </ul>
           </div>
         </div>
       </div>

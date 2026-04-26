@@ -116,45 +116,16 @@ body::before {
 }
 
 .illus-eq {
-  top: 12%;
+  top: 7%;
   left: 5%;
   width: clamp(120px, 15vw, 200px);
   transform: rotate(-3deg);
 }
 
-.illus-quote {
-  top: 30%;
-  left: 4%;
-  width: auto;
-  max-height: 400px;
-}
 
-.vertical-quote {
-  writing-mode: vertical-rl;
-  font-family: 'Georgia', serif;
-  font-size: 0.9rem;
-  line-height: 1.8;
-  color: var(--green);
-  opacity: 0.6;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  transform: rotate(180deg);
-}
-
-.vertical-quote cite {
-  font-size: 0.65rem;
-  opacity: 0.8;
-  font-family: 'IBM Plex Sans', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-top: 20px;
-  font-weight: 600;
-  color: var(--text);
-}
 
 .illus-neuron {
-  top: 20%;
+  top: 12%;
   right: 5%;
   width: clamp(200px, 28vw, 400px);
   transform: rotate(2deg);
@@ -170,8 +141,7 @@ body::before {
 @media(max-width: 600px) {
 
   .illus-neuron,
-  .illus-arm,
-  .illus-quote {
+  .illus-arm {
     display: none;
   }
 
@@ -903,7 +873,7 @@ body.light-mode .skill-tag {
 }
 
 .about-text {
-  font-size: 1.32rem;
+  font-size: 1.1rem;
   color: var(--text2);
   line-height: 2;
 }
@@ -1147,6 +1117,7 @@ footer {
 .d4 {
   animation-delay: 0.4s;
 }
+
 /* ── Project Modal (Case Study) ── */
 .project-modal {
   position: fixed;
@@ -1337,20 +1308,20 @@ footer {
     border-left: none;
     border-top: 1px solid var(--border);
   }
-  
+
   .project-modal.active .modal-content {
     transform: translateY(0);
     transform: translateX(0);
   }
-  
+
   .case-card-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .modal-body {
     padding: 3rem 1.5rem;
   }
-  
+
   .modal-title {
     font-size: 2rem;
   }
