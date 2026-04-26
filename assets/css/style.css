@@ -67,6 +67,10 @@ body.light-mode body::before {
   opacity: 0.01;
 }
 
+body.light-mode .modal-header .logo {
+  color: var(--text) !important;
+}
+
 /* Base */
 body {
   background: var(--bg);
