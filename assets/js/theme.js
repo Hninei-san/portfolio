@@ -117,6 +117,60 @@ if (roboticsProject && roboticsModal) {
   });
 }
 
+const leafRobotProject = document.getElementById('leaf-robot-project');
+const leafRobotModal = document.getElementById('leaf-robot-modal');
+const closeLeafRobotModal = document.getElementById('close-leaf-robot-modal');
+const leafRobotBackdrop = document.getElementById('leaf-robot-backdrop');
+
+if (leafRobotProject && leafRobotModal) {
+  const openLeafRobotModal = () => {
+    leafRobotModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLeafRobotBtnAction = () => {
+    leafRobotModal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  leafRobotProject.addEventListener('click', openLeafRobotModal);
+  closeLeafRobotModal.addEventListener('click', closeLeafRobotBtnAction);
+  leafRobotBackdrop.addEventListener('click', closeLeafRobotBtnAction);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && leafRobotModal.classList.contains('active')) {
+      closeLeafRobotBtnAction();
+    }
+  });
+}
+
+const lineFollowingProject = document.getElementById('line-following-project');
+const lineFollowingModal = document.getElementById('line-following-modal');
+const closeLineFollowingModal = document.getElementById('close-line-following-modal');
+const lineFollowingBackdrop = document.getElementById('line-following-backdrop');
+
+if (lineFollowingProject && lineFollowingModal) {
+  const openLineFollowingModal = () => {
+    lineFollowingModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLineFollowingBtnAction = () => {
+    lineFollowingModal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  lineFollowingProject.addEventListener('click', openLineFollowingModal);
+  closeLineFollowingModal.addEventListener('click', closeLineFollowingBtnAction);
+  lineFollowingBackdrop.addEventListener('click', closeLineFollowingBtnAction);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lineFollowingModal.classList.contains('active')) {
+      closeLineFollowingBtnAction();
+    }
+  });
+}
+
 const phProject = document.getElementById('ph-estimation-project');
 const phModal = document.getElementById('ph-estimation-modal');
 const closePhModal = document.getElementById('close-ph-estimation-modal');

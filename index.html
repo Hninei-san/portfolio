@@ -383,6 +383,48 @@
         </div>
       </div>
 
+      <div class="project-card" id="leaf-robot-project" data-category="robotics">
+        <div class="project-card-img">
+          <img src="assets/images/leave.png" alt="Autonomous Leaf-Collecting Robot 1">
+          <img src="assets/images/leave1.png." onerror="this.onerror=null; this.src='assets/images/leave1.png';"
+            alt="Autonomous Leaf-Collecting Robot 2">
+        </div>
+        <div class="project-card-body">
+          <div class="card-tag robotics">ROBOTICS</div>
+          <div class="card-title">Autonomous Leaf-Collecting Robot</div>
+          <div class="card-desc">Designed and developed an autonomous leaf-collecting robot with a lightweight aluminum
+            tracked chassis, brush-based collection mechanism, and Arduino Mega control system.</div>
+          <div class="card-stack">
+            <span class="stack-tag">Arduino Mega</span>
+            <span class="stack-tag">C++</span>
+            <span class="stack-tag">Ultrasonic Sensors</span>
+            <span class="stack-tag">IMU &amp; Compass</span>
+            <span class="stack-tag">Tracked Chassis</span>
+          </div>
+          <div class="card-arrow">↗</div>
+        </div>
+      </div>
+
+      <div class="project-card" id="line-following-project" data-category="robotics">
+        <div class="project-card-img">
+          <img src="assets/images/line.png" alt="Line Following Car 1">
+          <img src="assets/images/line0.png" alt="Line Following Car 2">
+        </div>
+        <div class="project-card-body">
+          <div class="card-tag robotics">ROBOTICS</div>
+          <div class="card-title">Line Following Car</div>
+          <div class="card-desc">Created a robot capable of detecting and tracking a predefined path, navigating both
+            sharp and gradual curves within a three-minute timeframe.</div>
+          <div class="card-stack">
+            <span class="stack-tag">STM32 F401RE</span>
+            <span class="stack-tag">PID Control</span>
+            <span class="stack-tag">PWM</span>
+            <span class="stack-tag">C++</span>
+          </div>
+          <div class="card-arrow">↗</div>
+        </div>
+      </div>
+
       <div class="project-card" id="ph-estimation-project" data-category="ai">
         <div class="project-card-img">
           <img src="assets/images/project4_2.png" alt="Automated pH Estimation 1">
@@ -975,13 +1017,13 @@
     </div>
   </div>
 
-  <!-- pH Estimation Detail Modal -->
-  <div id="ph-estimation-modal" class="project-modal">
-    <div class="modal-backdrop" id="ph-estimation-backdrop"></div>
+  <!-- Leaf-Collecting Robot Detail Modal -->
+  <div id="leaf-robot-modal" class="project-modal">
+    <div class="modal-backdrop" id="leaf-robot-backdrop"></div>
     <div class="modal-content">
       <div class="modal-header">
         <div class="logo">~/overview.sh</div>
-        <button class="close-modal" id="close-ph-estimation-modal">
+        <button class="close-modal" id="close-leaf-robot-modal">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M18 6L6 18M6 6l12 12" />
           </svg>
@@ -989,140 +1031,307 @@
         </button>
       </div>
       <div class="modal-body">
-        <span class="modal-tag">COMPUTER VISION CASE STUDY</span>
+        <span class="modal-tag">ROBOTICS CASE STUDY</span>
         <div style="display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem;">
-          <h2 class="modal-title" style="margin-bottom: 0;">Automated pH Estimation</h2>
-          <a href="https://github.com/Hninei-san/Automated-pH-Estimation-using-Computer-Vision-" target="_blank"
-            class="github-link" style="color: var(--text3); transition: color 0.2s;"
-            onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text3)'">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.22-3.33.72-4.035-1.41-4.035-1.41-.54-1.38-1.32-1.755-1.32-1.755-1.08-.735.075-.72.075-.72 1.205.085 1.835 1.24 1.835 1.24 1.07 1.835 2.805 1.305 3.495.995.105-.775.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.125.81 2.265 0 1.635-.015 2.955-.015 3.345 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          <h2 class="modal-title" style="margin-bottom: 0;">Autonomous Leaf-Collecting Robot</h2>
+          <a href="feedback.pdf" target="_blank" class="github-link"
+            style="color: var(--text3); transition: color 0.2s;" onmouseover="this.style.color='var(--text)'"
+            onmouseout="this.style.color='var(--text3)'" title="View Feedback PDF Report">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <line x1="10" y1="9" x2="8" y2="9"></line>
             </svg>
           </a>
         </div>
         <p class="modal-desc-long">
-          An automated system for pH level estimation using computer vision and machine learning, designed to provide
-          accurate and real-time analysis of chemical indicator strips.
+          Designed and developed an autonomous leaf-collecting robot featuring a lightweight aluminum tracked chassis
+          and a brush-based collection mechanism. Powered by an Arduino Mega control system, it integrates multi-modal
+          sensor arrays for robust autonomous navigation and cleaning operations.
         </p>
 
         <div class="case-card-grid">
-          <div class="case-card">
+          <!-- <div class="case-card">
             <h4>Technical Overview</h4>
             <ul>
-              <li>Developed a CV-based pipeline that automatically segments pH indicator strips and extracts precise
-                color values from test regions.</li>
-              <li>Implemented a robust normalization algorithm that uses a reference color chart to account for varied
-                lighting conditions.</li>
-              <li>Trained regression models to map extracted RGB/HSV color vectors to precise pH values, achieving high
-                numerical accuracy.</li>
-              <li>Optimized the image processing workflow to enable real-time pH estimation on embedded devices and
-                mobile platforms.</li>
+              <li>Engineered a lightweight aluminum tracked chassis combined with a highly efficient brush-based leaf
+                collection mechanism.</li>
+              <li>Developed the core firmware on an Arduino Mega control system using C++ for real-time actuator control
+                and sensor polling.</li>
+              <li>Integrated ultrasonic sensors to implement real-time obstacle detection and dynamic collision
+                avoidance algorithms.</li>
+              <li>Utilized accelerometer and compass modules to maintain precise orientation stability and reliable
+                directional navigation across uneven outdoor terrain.</li>
             </ul>
           </div>
 
           <div class="case-card">
-            <h4>Analytics & Results</h4>
+            <h4>Operational Highlights</h4>
             <ul>
-              <li>Achieved a mean absolute error (MAE) of less than 0.1 pH units, consistently outperforming human
-                subjects in controlled testing.</li>
-              <li>Successfully validated the system's performance across varied lighting environments through advanced
-                white balancing.</li>
-              <li>Demonstrated the potential for low-cost, automated chemical analysis in agricultural monitoring
-                applications.</li>
+              <li>Successfully demonstrated autonomous leaf collection in outdoor environments, significantly reducing
+                manual labor requirements.</li>
+              <li>Achieved smooth traversal over varied terrain (grass, pavement, uneven soil) utilizing the optimized
+                weight distribution of the tracked chassis.</li>
+              <li>Ensured reliable heading preservation and stable navigation paths through sensor fusion from the
+                integrated compass and IMU modules.</li>
             </ul>
           </div>
-        </div>
+        </div> -->
 
-        <div class="case-gallery">
-          <div class="case-img-container">
-            <img src="assets/images/project4_2.png" alt="Color Segmentation">
-            <div class="case-img-caption">Automatic segmentation of indicator regions from laboratory image data.</div>
-          </div>
-          <div class="case-img-container">
-            <img src="assets/images/project4_1.png" alt="pH Regression Results">
-            <div class="case-img-caption">Regression model performance across the full pH spectrum.</div>
+          <div class="case-gallery">
+            <div class="case-img-container">
+              <img src="assets/images/leave_details.png" alt="Autonomous Leaf-Collecting Robot Front View">
+              <div class="case-img-caption">Front isometric view displaying the brush collection mechanism and
+                integrated
+                sensors.</div>
+            </div>
+            <div class="case-img-container">
+              <img src="assets/images/leave_details1.png"
+                onerror="this.onerror=null; this.src='assets/images/leave1.png';"
+                alt="Autonomous Leaf-Collecting Robot Side View">
+              <div class="case-img-caption">Side profile showcasing the lightweight aluminum tracked chassis and
+                internal
+                hardware layout.</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Height Measurement Detail Modal -->
-  <div id="height-measurement-modal" class="project-modal">
-    <div class="modal-backdrop" id="height-measurement-backdrop"></div>
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="logo">~/overview.sh</div>
-        <button class="close-modal" id="close-height-modal">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-          Close
-        </button>
-      </div>
-      <div class="modal-body">
-        <span class="modal-tag">COMPUTER VISION CASE STUDY</span>
-        <div style="display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem;">
-          <h2 class="modal-title" style="margin-bottom: 0;">Height Measurement from a Single Camera View</h2>
-          <a href="https://github.com/pyaehtookhant/Height-Detection" target="_blank" class="github-link"
-            style="color: var(--text3); transition: color 0.2s;" onmouseover="this.style.color='var(--text)'"
-            onmouseout="this.style.color='var(--text3)'">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.22-3.33.72-4.035-1.41-4.035-1.41-.54-1.38-1.32-1.755-1.32-1.755-1.08-.735.075-.72.075-.72 1.205.085 1.835 1.24 1.835 1.24 1.07 1.835 2.805 1.305 3.495.995.105-.775.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.125.81 2.265 0 1.635-.015 2.955-.015 3.345 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+    <!-- Line Following Car Detail Modal -->
+    <div id="line-following-modal" class="project-modal">
+      <div class="modal-backdrop" id="line-following-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="logo">~/overview.sh</div>
+          <button class="close-modal" id="close-line-following-modal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6L6 18M6 6l12 12" />
             </svg>
-          </a>
+            Close
+          </button>
         </div>
-        <p class="modal-desc-long">
-          A computer vision system designed to accurately estimate the height of objects or individuals from a single
-          calibrated camera view using geometric perspective and reference objects.
-        </p>
+        <div class="modal-body">
+          <span class="modal-tag">ROBOTICS CASE STUDY</span>
+          <div style="display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem;">
+            <h2 class="modal-title" style="margin-bottom: 0;">Autonomous Line Following Car</h2>
+            <a href="line.pdf" target="_blank" class="github-link"
+              style="color: var(--text3); transition: color 0.2s;" onmouseover="this.style.color='var(--text)'"
+              onmouseout="this.style.color='var(--text3)'" title="View Line Following PDF Report">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <line x1="10" y1="9" x2="8" y2="9"></line>
+              </svg>
+            </a>
+          </div>
+          <p class="modal-desc-long">
+            Designed and developed a robust autonomous line following robot capable of real-time path tracking using
+            sensor arrays and advanced control theory. Built on an STM32 F401RE microcontroller, the platform
+            successfully navigates sharp and gradual curves under strict timeframe constraints.
+          </p>
 
-        <div class="case-card-grid">
-          <div class="case-card">
-            <h4>Technical Overview</h4>
-            <ul>
-              <li>Implemented a geometric reasoning engine that utilizes vanishing points and horizon line detection to
-                project real-world heights.</li>
-              <li>Developed an automated calibration routine using objects of known height to establish pixel-to-metric
-                conversion factors.</li>
-              <li>Integrated YOLO-based models to automatically detect and segment individuals or objects for
-                measurement within the frame.</li>
-              <li>Developed noise-reduction filters to account for lens distortion and camera tilt, ensuring stability
-                across viewing angles.</li>
-            </ul>
+          <div class="case-card-grid">
+            <div class="case-card">
+              <h4>Technical Overview</h4>
+              <ul>
+                <li>Engineered core control firmware on the high-performance STM32 F401RE ARM Cortex-M4 microcontroller.
+                </li>
+                <li>Implemented highly responsive Proportional-Integral-Derivative (PID) control algorithms to minimize
+                  lateral path deviation.</li>
+                <li>Utilized precise Pulse Width Modulation (PWM) techniques for smooth and dynamic differential motor
+                  speed adjustments.</li>
+                <li>Optimized sensor polling routines to reliably identify line transitions across continuous high-speed
+                  runs.</li>
+              </ul>
+            </div>
+
+            <div class="case-card">
+              <h4>Performance & Results</h4>
+              <ul>
+                <li>Successfully tracked complex predefined paths containing both sharp hairpin turns and long gradual
+                  sweeps.</li>
+                <li>Consistently completed navigation challenges within the strict three-minute operational timeframe.
+                </li>
+                <li>Demonstrated stable controller tuning, eliminating jitter and overshooting during sudden directional
+                  transitions.</li>
+              </ul>
+            </div>
           </div>
 
-          <div class="case-card">
-            <h4>Analytics & Results</h4>
-            <ul>
-              <li>Achieved a deviation of less than 3% compared to physical measurements at distances up to 10 meters.
-              </li>
-              <li>Optimized for low-latency performance, enabling real-time height estimation for surveillance
-                applications.</li>
-              <li>Demonstrated a streamlined setup process requiring only a single reference object for calibration.
-              </li>
-            </ul>
+          <div class="case-gallery">
+            <div class="case-img-container">
+              <img src="assets/images/line.png" alt="Line Following Car Top View">
+              <div class="case-img-caption">Top-down view displaying the chassis layout, microcontroller integration,
+                and drive alignment.</div>
+            </div>
+            <div class="case-img-container">
+              <img src="assets/images/line0.png" alt="Line Following Car Action Shot">
+              <div class="case-img-caption">Operational demonstration tracking a predefined high-contrast circuit path.
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="case-gallery">
-          <div class="case-img-container">
-            <img src="assets/images/height.png" alt="Geometric Construction">
-            <div class="case-img-caption">Visualizing the geometric perspective lines and horizon detection for height
-              inference.</div>
+    <!-- pH Estimation Detail Modal -->
+    <div id="ph-estimation-modal" class="project-modal">
+      <div class="modal-backdrop" id="ph-estimation-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="logo">~/overview.sh</div>
+          <button class="close-modal" id="close-ph-estimation-modal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+            Close
+          </button>
+        </div>
+        <div class="modal-body">
+          <span class="modal-tag">COMPUTER VISION CASE STUDY</span>
+          <div style="display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem;">
+            <h2 class="modal-title" style="margin-bottom: 0;">Automated pH Estimation</h2>
+            <a href="https://github.com/Hninei-san/Automated-pH-Estimation-using-Computer-Vision-" target="_blank"
+              class="github-link" style="color: var(--text3); transition: color 0.2s;"
+              onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text3)'">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.22-3.33.72-4.035-1.41-4.035-1.41-.54-1.38-1.32-1.755-1.32-1.755-1.08-.735.075-.72.075-.72 1.205.085 1.835 1.24 1.835 1.24 1.07 1.835 2.805 1.305 3.495.995.105-.775.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.125.81 2.265 0 1.635-.015 2.955-.015 3.345 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+            </a>
           </div>
-          <!-- <div class="case-img-container">
+          <p class="modal-desc-long">
+            An automated system for pH level estimation using computer vision and machine learning, designed to provide
+            accurate and real-time analysis of chemical indicator strips.
+          </p>
+
+          <div class="case-card-grid">
+            <div class="case-card">
+              <h4>Technical Overview</h4>
+              <ul>
+                <li>Developed a CV-based pipeline that automatically segments pH indicator strips and extracts precise
+                  color values from test regions.</li>
+                <li>Implemented a robust normalization algorithm that uses a reference color chart to account for varied
+                  lighting conditions.</li>
+                <li>Trained regression models to map extracted RGB/HSV color vectors to precise pH values, achieving
+                  high
+                  numerical accuracy.</li>
+                <li>Optimized the image processing workflow to enable real-time pH estimation on embedded devices and
+                  mobile platforms.</li>
+              </ul>
+            </div>
+
+            <div class="case-card">
+              <h4>Analytics & Results</h4>
+              <ul>
+                <li>Achieved a mean absolute error (MAE) of less than 0.1 pH units, consistently outperforming human
+                  subjects in controlled testing.</li>
+                <li>Successfully validated the system's performance across varied lighting environments through advanced
+                  white balancing.</li>
+                <li>Demonstrated the potential for low-cost, automated chemical analysis in agricultural monitoring
+                  applications.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="case-gallery">
+            <div class="case-img-container">
+              <img src="assets/images/project4_2.png" alt="Color Segmentation">
+              <div class="case-img-caption">Automatic segmentation of indicator regions from laboratory image data.
+              </div>
+            </div>
+            <div class="case-img-container">
+              <img src="assets/images/project4_1.png" alt="pH Regression Results">
+              <div class="case-img-caption">Regression model performance across the full pH spectrum.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Height Measurement Detail Modal -->
+    <div id="height-measurement-modal" class="project-modal">
+      <div class="modal-backdrop" id="height-measurement-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="logo">~/overview.sh</div>
+          <button class="close-modal" id="close-height-modal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+            Close
+          </button>
+        </div>
+        <div class="modal-body">
+          <span class="modal-tag">COMPUTER VISION CASE STUDY</span>
+          <div style="display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem;">
+            <h2 class="modal-title" style="margin-bottom: 0;">Height Measurement from a Single Camera View</h2>
+            <a href="https://github.com/pyaehtookhant/Height-Detection" target="_blank" class="github-link"
+              style="color: var(--text3); transition: color 0.2s;" onmouseover="this.style.color='var(--text)'"
+              onmouseout="this.style.color='var(--text3)'">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.22-3.33.72-4.035-1.41-4.035-1.41-.54-1.38-1.32-1.755-1.32-1.755-1.08-.735.075-.72.075-.72 1.205.085 1.835 1.24 1.835 1.24 1.07 1.835 2.805 1.305 3.495.995.105-.775.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.125.81 2.265 0 1.635-.015 2.955-.015 3.345 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+          <p class="modal-desc-long">
+            A computer vision system designed to accurately estimate the height of objects or individuals from a single
+            calibrated camera view using geometric perspective and reference objects.
+          </p>
+
+          <div class="case-card-grid">
+            <div class="case-card">
+              <h4>Technical Overview</h4>
+              <ul>
+                <li>Implemented a geometric reasoning engine that utilizes vanishing points and horizon line detection
+                  to
+                  project real-world heights.</li>
+                <li>Developed an automated calibration routine using objects of known height to establish
+                  pixel-to-metric
+                  conversion factors.</li>
+                <li>Integrated YOLO-based models to automatically detect and segment individuals or objects for
+                  measurement within the frame.</li>
+                <li>Developed noise-reduction filters to account for lens distortion and camera tilt, ensuring stability
+                  across viewing angles.</li>
+              </ul>
+            </div>
+
+            <div class="case-card">
+              <h4>Analytics & Results</h4>
+              <ul>
+                <li>Achieved a deviation of less than 3% compared to physical measurements at distances up to 10 meters.
+                </li>
+                <li>Optimized for low-latency performance, enabling real-time height estimation for surveillance
+                  applications.</li>
+                <li>Demonstrated a streamlined setup process requiring only a single reference object for calibration.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="case-gallery">
+            <div class="case-img-container">
+              <img src="assets/images/height.png" alt="Geometric Construction">
+              <div class="case-img-caption">Visualizing the geometric perspective lines and horizon detection for height
+                inference.</div>
+            </div>
+            <!-- <div class="case-img-container">
             <img src="assets/images/height_cv2.png" alt="Measurement UI">
             <div class="case-img-caption">Real-time measurement overlay during various laboratory test scenarios.</div>
           </div> -->
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="assets/js/theme.js"></script>
+    <script src="assets/js/theme.js"></script>
 
 </body>
 
