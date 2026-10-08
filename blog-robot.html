@@ -14,26 +14,12 @@
 
 /* ── Layout ── */
 .blog-main {
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 6rem 3rem 5rem;
+  padding: 5rem 3rem;
 }
 
-/* ── Back link ── */
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  color: var(--text3);
-  text-decoration: none;
-  margin-bottom: 2.5rem;
-  transition: color 0.2s;
-}
-.back-link:hover { color: var(--green); }
-.back-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
 
 /* ── Hero section ── */
 .blog-hero {
@@ -136,7 +122,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  max-width: 1040px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -292,11 +278,11 @@ ul.q li:before {
   box-shadow: 0 3px 8px rgba(0,0,0,0.5);
   transition: transform 0.2s;
 }
-.note:nth-child(5n+1){background:#d2d2d7;transform:rotate(-2deg)}
+.note:nth-child(5n+1){background:#f5f5f7;transform:rotate(-2deg)}
 .note:nth-child(5n+2){background:#e8e8ed;transform:rotate(1.5deg)}
-.note:nth-child(5n+3){background:#c7c7cc;transform:rotate(-0.8deg)}
-.note:nth-child(5n+4){background:#dddde2;transform:rotate(2deg)}
-.note:nth-child(5n){background:#cacad0;transform:rotate(-1.5deg)}
+.note:nth-child(5n+3){background:#fff9db;transform:rotate(-0.8deg)}
+.note:nth-child(5n+4){background:#dbeafe;transform:rotate(2deg)}
+.note:nth-child(5n){background:#dcfce7;transform:rotate(-1.5deg)}
 .note:hover { transform: rotate(0) translateY(-2px) scale(1.03); }
 
 /* ── Piles (materials) ── */
@@ -315,12 +301,12 @@ ul.q li:before {
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
-  color: #000;
+  color: var(--text);
   letter-spacing: 0.02em;
 }
-.p1 .tag { background: var(--green); }
-.p2 .tag { background: var(--green-dim); }
-.p3 .tag { background: var(--green-dark); color: #fff; }
+.p1 .tag { background: rgba(245,245,247,0.12); border-bottom: 1px solid var(--border); }
+.p2 .tag { background: rgba(245,245,247,0.08); border-bottom: 1px solid var(--border); }
+.p3 .tag { background: rgba(245,245,247,0.05); border-bottom: 1px solid var(--border); }
 .pile .h {
   padding: 10px 12px 0;
   font-family: 'DM Mono', monospace;
@@ -576,10 +562,6 @@ body.light-mode .tasks i {
   </nav>
 
 <div class="blog-main">
-  <a href="index.html" class="back-link">
-    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-    cd ../portfolio
-  </a>
 
   <!-- Hero -->
   <div class="blog-hero">
