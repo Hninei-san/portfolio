@@ -16,14 +16,14 @@
 .blog-main {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 5rem 3rem;
+  padding: 5rem clamp(1rem, 3vw, 2.5rem);
 }
 
 
 
 /* ── Hero section ── */
 .blog-hero {
-  max-width: 680px;
+  max-width: 1200px;
   margin: 0 auto 4rem;
   text-align: center;
 }
@@ -50,42 +50,81 @@
   line-height: 1.15;
 }
 
+.blog-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
+  align-items: center;
+  gap: 2rem;
+  margin: 1.8rem auto 0;
+  text-align: left;
+}
+
 .blog-lede {
   font-family: 'DM Mono', monospace;
   font-size: 0.92rem;
   color: var(--text2);
   line-height: 1.8;
-  max-width: 540px;
+  margin: 0;
+}
+
+.blog-intro-copy {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.blog-context {
+  margin: 0;
+  color: var(--text2);
+  font-size: 0.86rem;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.blog-context strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.blog-hero-image {
+  width: min(100%, 900px);
+  margin: 1.5rem auto 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.blog-motivation-image {
+  width: min(100%, 320px);
   margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.blog-motivation-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.blog-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.blog-hero-image figcaption {
+  padding: 8px 10px;
+  color: var(--text2);
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 /* ── Robot track ── */
 .track-wrap { max-width: 500px; margin: 2.5rem auto 0; }
 .track { position: relative; height: 50px; border-bottom: 1px solid var(--border2); }
-.bot { position: absolute; left: 0; bottom: -2px; width: 44px; transition: left 2.4s cubic-bezier(.5,0,.3,1); }
-.bot.go { left: calc(100% - 44px); }
-.run-btn {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  background: var(--green);
-  color: #000;
-  border: none;
-  padding: 0.6rem 1.6rem;
-  cursor: pointer;
-  margin-top: 1rem;
-  transition: all 0.2s;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.run-btn:hover {
-  background: var(--text);
-  color: var(--bg);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(255,255,255,0.1);
-}
+.bot { position: absolute; left: 0; bottom: -2px; width: 44px; }
 
 /* ── Route map section label ── */
 .route-label {
@@ -134,6 +173,9 @@
   position: relative;
   padding: 24px 20px 32px;
 }
+.stop[data-step="5"] {
+  grid-column: 1 / -1;
+}
 
 /* ── Station marker ── */
 .station {
@@ -163,7 +205,7 @@
 
 .stop:hover .station-num {
   background: var(--green);
-  color: #000;
+  color: var(--bg);
   border-color: var(--green);
   box-shadow: 0 4px 20px rgba(245,245,247,0.15);
   transform: scale(1.08);
@@ -211,6 +253,20 @@
   line-height: 1.7;
 }
 
+.research-figure {
+  margin: 14px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.research-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* ── U-turn connector ── */
 .u-connector {
   position: relative;
@@ -226,16 +282,11 @@
 }
 .u-line {
   fill: none;
-  stroke: var(--border2);
-  stroke-width: 1;
+  stroke: var(--green);
+  stroke-width: 2;
   stroke-dasharray: 6 8;
   vector-effect: non-scaling-stroke;
 }
-
-/* Row direction — odd rows snake right-to-left */
-.row-odd { direction: rtl; }
-.row-odd .stop-card,
-.row-odd .station { direction: ltr; }
 
 /* ── Sticky notes ── */
 ul.q { margin: 10px 0 0; padding: 0; list-style: none; }
@@ -276,14 +327,19 @@ ul.q li:before {
   color: #1c1c1e;
   border-radius: 2px 2px 8px 2px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.5);
-  transition: transform 0.2s;
+}
+.objective-board .note {
+  display: block;
+  flex: none;
+  width: 100%;
+  max-width: none;
+  min-height: 0;
 }
 .note:nth-child(5n+1){background:#f5f5f7;transform:rotate(-2deg)}
 .note:nth-child(5n+2){background:#e8e8ed;transform:rotate(1.5deg)}
 .note:nth-child(5n+3){background:#fff9db;transform:rotate(-0.8deg)}
 .note:nth-child(5n+4){background:#dbeafe;transform:rotate(2deg)}
 .note:nth-child(5n){background:#dcfce7;transform:rotate(-1.5deg)}
-.note:hover { transform: rotate(0) translateY(-2px) scale(1.03); }
 
 /* ── Piles (materials) ── */
 .piles { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 10px 0 8px; }
@@ -366,11 +422,6 @@ ul.q li:before {
   z-index: 1;
   transition: all 0.2s;
 }
-.tl-item:not(:has(input:not(:checked))) .mk {
-  background: var(--green);
-  color: #000;
-  border-color: var(--green);
-}
 .tl-body h3 {
   margin: 2px 0 4px;
   font-family: 'IBM Plex Sans', sans-serif;
@@ -379,38 +430,49 @@ ul.q li:before {
   color: var(--text);
 }
 .tasks { list-style: none; margin: 0; padding: 0; }
-.tasks label {
-  display: flex;
-  gap: 8px;
-  align-items: flex-start;
-  cursor: pointer;
+.tasks li {
   padding: 2px 0;
   font-size: 0.8rem;
   color: var(--text2);
+  line-height: 1.5;
 }
-.tasks input { position: absolute; opacity: 0; width: 16px; height: 16px; }
-.tasks i {
-  flex: none;
-  width: 14px;
-  height: 14px;
-  margin-top: .2em;
-  border: 1px solid var(--border2);
-  border-radius: 3px;
-  display: grid;
-  place-items: center;
-  background: var(--bg2);
-  transition: all .2s;
+.software-tools-figure {
+  width: min(100%, 300px);
+  margin: 10px auto 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
 }
-.tasks input:checked+i { background: var(--green); border-color: var(--green); }
-.tasks input:checked+i:after {
-  content: "";
-  width: 4px;
-  height: 7px;
-  border: solid #000;
-  border-width: 0 1.5px 1.5px 0;
-  transform: rotate(45deg) translate(-1px,-1px);
+.software-tools-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
-.tasks input:checked~span { text-decoration: line-through; opacity: .5; }
+.hardware-figure {
+  margin: 8px 10px 12px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #fff;
+}
+.hardware-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.result-subheading {
+  margin: 20px 0 8px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.result-caption {
+  padding: 8px 10px;
+  color: var(--text2);
+  font-size: 0.8rem;
+  text-align: center;
+}
 
 /* ── Debug checklist ── */
 details { margin-top: 8px; }
@@ -442,7 +504,7 @@ summary {
 }
 .stop.end .station-num {
   background: var(--green);
-  color: #000;
+  color: var(--bg);
   border-color: var(--green);
   box-shadow: 0 0 20px rgba(245,245,247,0.15);
 }
@@ -486,18 +548,14 @@ body.light-mode .pile {
   background: var(--bg3);
   border-color: var(--border);
 }
-body.light-mode .tasks i {
-  background: var(--bg3);
-  border-color: var(--border2);
-}
-
 /* ═══════════════════════════════
    RESPONSIVE — stack on mobile
    ═══════════════════════════════ */
 @media (max-width: 768px) {
-  .blog-main { padding: 5rem 1.5rem 4rem; }
+  .blog-intro { grid-template-columns: 1fr; gap: 1.5rem; }
+  .blog-motivation-image { width: min(100%, 360px); }
+  .blog-lede { max-width: 540px; margin: 0 auto; text-align: center; }
   .route-map { grid-template-columns: 1fr; }
-  .row-odd { direction: ltr; }
   .u-connector { display: none; }
   .stop { padding: 12px 0 20px; }
   .stop::before {
@@ -506,15 +564,14 @@ body.light-mode .tasks i {
     left: 19px;
     top: 0;
     bottom: 0;
-    width: 1px;
-    background: var(--border2);
+    width: 3px;
+    background: var(--green);
     z-index: 0;
   }
   .stop:first-child::before { top: 44px; }
   .stop:last-child::before { bottom: 50%; }
 }
 
-@media (prefers-reduced-motion: reduce) { .bot { transition: none; } }
 </style>
 </head>
 <body>
@@ -567,13 +624,26 @@ body.light-mode .tasks i {
   <div class="blog-hero">
     <span class="blog-label">LEARNING LOG</span>
     <h1>How I learn stuff I have no clue about</h1>
-    <p class="blog-lede">I wanted to build a UAV-UGV robot and had no idea how. This is less about robots and more about how I got unstuck — because that part works for pretty much anything new.</p>
+    <div class="blog-intro">
+      <div class="blog-intro-copy">
+        <p class="blog-lede">I wanted to build a UAV-UGV robot and had no idea how. This is less about robots and more about how I got unstuck and keep it going.</p>
+        <p class="blog-context"><strong>UAV-UGV</strong> combines an unmanned aerial vehicle (UAV) with an unmanned ground vehicle (UGV), allowing transformation to travel as a drone and mobile robot.</p>
+        <p class="blog-context">" The <strong>motivation</strong> for this project came from the <strong>2025 Myanmar earthquake</strong>, where collapsed buildings made inspection difficult and dangerous. A ground robot may not be able to cross rubble, while a drone alone has high enery consumption and instability in cluttered environments "</p>
+        <!-- <p class="blog-context">Therefore, I developed a <strong>transformable UAV-UGV robot</strong> that can switch between ground and aerial modes to inspect areas more effectively.</p> -->
+      </div>
+      <figure class="blog-motivation-image">
+        <img src="assets/images/robot-motivation-challenges.png" alt="Illustration of ground robot mobility limits and aerial robot endurance and stability limits in rubble">
+      </figure>
+    </div>
+    <figure class="blog-hero-image">
+      <img src="assets/images/uav-ugv-robot-concept.png" alt="UAV-UGV robot design progressing from a wheeled ground robot to a quadcopter">
+      <figcaption>UAV-UGV robot design progressing from a wheeled ground robot to a quadcopter</figcaption>
+    </figure>
 
     <div class="track-wrap">
       <div class="track" aria-hidden="true">
         <div class="bot" id="bot"><svg viewBox="0 0 44 44" width="44" height="44"><line x1="22" y1="2" x2="22" y2="8" stroke="#f5f5f7" stroke-width="2" stroke-linecap="round"/><circle cx="22" cy="2" r="2.5" fill="#f5f5f7"/><rect x="4" y="8" width="36" height="24" rx="8" fill="rgba(245,245,247,0.08)" stroke="#f5f5f7" stroke-width="1.5"/><circle cx="15" cy="19" r="2.5" fill="#f5f5f7"/><circle cx="29" cy="19" r="2.5" fill="#f5f5f7"/><path d="M18 25 Q22 28 26 25" fill="none" stroke="#f5f5f7" stroke-width="1.8" stroke-linecap="round"/><circle cx="11" cy="37" r="5" fill="none" stroke="rgba(245,245,247,0.4)" stroke-width="1.5"/><circle cx="33" cy="37" r="5" fill="none" stroke="rgba(245,245,247,0.4)" stroke-width="1.5"/></svg></div>
       </div>
-      <button class="run-btn" id="run">RUN ./robot</button>
     </div>
   </div>
 
@@ -587,36 +657,43 @@ body.light-mode .tasks i {
   <div class="route-map" id="routeMap">
 
     <!-- ─── Row 1: Steps 1 → 2 (left to right) ─── -->
-    <div class="route-row row-even">
+    <div class="route-row">
       <div class="stop" data-step="1">
         <div class="station">
           <div class="station-num">01</div>
-          <span class="station-label">START</span>
         </div>
         <div class="stop-card">
-          <h2>Not knowing anything</h2>
-          <p>I wanted to build a UAV-UGV robot. I didn't know what parts I needed or what to even google first. The blank-page feeling was the worst part.</p>
+          <h2>Background research</h2>
+          <p>I didn't know what parts I needed or what to even google first. The blank-page feeling was the worst part. So, I look for the existing similar research. These are the questions I studied:</p>
+          <ul class="q">
+            <li>What transformable robots have already been developed?</li>
+            <li>Components</li>
+            <li>Calculations</li>
+            <li>Weight and design considerations</li>
+            <li>Software stacks</li>
+          </ul>
+          <figure class="research-figure">
+            <img src="assets/images/background-research-literature-review.png" alt="Literature review comparing transformable ground and aerial robots from 2022, 2023, and 2025, with a research gap for 2026">
+          </figure>
         </div>
       </div>
 
       <div class="stop" data-step="2">
         <div class="station">
           <div class="station-num">02</div>
-          <span class="station-label">BRAIN DUMP</span>
         </div>
         <div class="stop-card">
-          <h2>Shrink the big scary question</h2>
-          <p>"Build a robot" is too vague to start. So I did a brain dump — every question, even the dumb ones.</p>
-          <div class="board" role="list">
-            <span class="note" role="listitem">what should it even do??</span>
-            <span class="note" role="listitem">how does it move?</span>
-            <span class="note" role="listitem">what do I buy lol</span>
-            <span class="note" role="listitem">how does it know what's in front of it</span>
-            <span class="note" role="listitem">what's the "brain"?</span>
-            <span class="note" role="listitem">how does my code make motors go</span>
-            <span class="note" role="listitem">is this too hard</span>
+          <h2>Define objectives and scope</h2>
+          <p>After spending two months researching and learning new tools without really knowing where the project would go, we decided to define objectives and scope. This helped us understand what we wanted to achieve and stick to the plan.</p>
+          <div class="board objective-board" role="list">
+            <span class="note" role="listitem"><strong>Design and fabricate</strong> the mechanical structure for both ground and aerial operation.</span>
+            <span class="note" role="listitem"><strong>Develop the transformation mechanism</strong> so the robot can switch between UGV and UAV modes.</span>
+            <span class="note" role="listitem"><strong>Develop the control system</strong> using RC, flight controller, and ROS 2.</span>
+            <span class="note" role="listitem"><strong>Integrate sensors and onboard computing</strong> for robot operation and data processing.</span>
+            <span class="note" role="listitem"><strong>Add visual inspection</strong> to detect objects and obstacles.</span>
+            <span class="note" role="listitem"><strong>Create a web interface</strong> to view the robot's camera feed and detection results in real time.</span>
+            <span class="note" role="listitem"><strong>Test the robot</strong> to see how well it moves, transforms, operates, and performs inspection.</span>
           </div>
-          <p>Once they were all out, none of them looked as scary.</p>
         </div>
       </div>
     </div>
@@ -624,53 +701,58 @@ body.light-mode .tasks i {
     <!-- U-turn -->
     <div class="u-connector">
       <svg viewBox="0 0 100 44" preserveAspectRatio="none">
-        <path class="u-line" d="M 95,0 L 95,20 Q 95,40 75,40 L 25,40 Q 5,40 5,20 L 5,0" vector-effect="non-scaling-stroke"/>
+        <defs>
+          <marker id="route-arrow-1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="2" markerHeight="2" markerUnits="userSpaceOnUse" orient="auto">
+            <path d="M0 0 L9 5 L0 10Z" fill="var(--green)" fill-opacity="0.65"/>
+          </marker>
+        </defs>
+        <path class="u-line" d="M 50,0 L 50,20 Q 50,40 42,40 L 11,40 Q 3.3,40 3.3,20 L 3.3,92" marker-end="url(#route-arrow-1)" vector-effect="non-scaling-stroke"/>
       </svg>
     </div>
 
-    <!-- ─── Row 2: Steps 3 ← 4 (right to left) ─── -->
-    <div class="route-row row-odd">
-      <div class="stop" data-step="4">
+    <!-- ─── Row 2: Steps 3 → 4 ─── -->
+    <div class="route-row">
+      <div class="stop" data-step="3">
         <div class="station">
-          <div class="station-num">04</div>
-          <span class="station-label">EXECUTE</span>
+          <div class="station-num">03</div>
         </div>
         <div class="stop-card">
-          <h2>Go in order</h2>
-          <p>I started by researching and reverse engineering. I didn't move on until each step made sense.</p>
+          <h2>Reverse Engineering</h2>
+          <p>After defining the scope, I have to do background research again.</p>
           <ol class="timeline">
-            <li class="tl-item"><span class="mk">1</span><div class="tl-body"><h3>Research + reverse engineer</h3><ul class="tasks"><li><label><input type="checkbox"><i></i><span>Look up how existing UAV and UGV robots are built</span></label></li><li><label><input type="checkbox"><i></i><span>Break them down on paper</span></label></li></ul></div></li>
-            <li class="tl-item"><span class="mk">2</span><div class="tl-body"><h3>Learn UGV and UAV</h3><ul class="tasks"><li><label><input type="checkbox"><i></i><span>Learn how a ground robot moves and steers</span></label></li><li><label><input type="checkbox"><i></i><span>Learn how a drone flies and stays stable</span></label></li></ul></div></li>
-            <li class="tl-item"><span class="mk">3</span><div class="tl-body"><h3>Do the calculations</h3><ul class="tasks"><li><label><input type="checkbox"><i></i><span>Work out weight, power and battery needs</span></label></li><li><label><input type="checkbox"><i></i><span>Check the numbers add up before buying</span></label></li></ul></div></li>
-            <li class="tl-item"><span class="mk">4</span><div class="tl-body"><h3>Prepare materials</h3><ul class="tasks"><li><label><input type="checkbox"><i></i><span>Turn calculations into a parts list</span></label></li><li><label><input type="checkbox"><i></i><span>Gather everything and make sure it fits</span></label></li></ul></div></li>
-            <li class="tl-item"><span class="mk">5</span><div class="tl-body"><h3>Software stack</h3><ul class="tasks"><li><label><input type="checkbox"><i></i><span>Pick the software that controls each part</span></label></li><li><label><input type="checkbox"><i></i><span>Get everything talking to each other</span></label></li></ul></div></li>
+            <li class="tl-item"><span class="mk">1</span><div class="tl-body"><h3>Research + reverse engineer</h3><ul class="tasks"><li>Look up how existing UAV and UGV robots are built</li></ul></div></li>
+            <li class="tl-item"><span class="mk">2</span><div class="tl-body"><h3>Learn UGV and UAV</h3><ul class="tasks"><li>Learn how a ground robot moves and steers</li><li>Learn how a drone flies and stays stable</li></ul></div></li>
+            <li class="tl-item"><span class="mk">3</span><div class="tl-body"><h3>Do the calculations</h3><ul class="tasks"><li>Work out weight, Electrical System & Design, power and battery needs</li></ul></div></li>
+            <li class="tl-item"><span class="mk">4</span><div class="tl-body"><h3>Prepare materials</h3><ul class="tasks"><li>Turn calculations into component list</li></ul></div></li>
+            <li class="tl-item"><span class="mk">5</span><div class="tl-body"><h3>Software stack</h3><ul class="tasks"><li>Pick the software and simulation</li></ul><figure class="software-tools-figure"><img src="assets/images/software-tools-stack.png" alt="Software and design tools: SolidWorks for CAD, eCalc for quadcopter calculations, ROS 2 middleware, PX4 Autopilot firmware, and Roboflow for image annotation"></figure></div></li>
           </ol>
         </div>
       </div>
 
-      <div class="stop" data-step="3">
+      <div class="stop" data-step="4">
         <div class="station">
-          <div class="station-num">03</div>
-          <span class="station-label">ORGANIZE</span>
+          <div class="station-num">04</div>
         </div>
         <div class="stop-card">
-          <h2>Make a materials list</h2>
-          <p>Turned sticky notes into a structured list: hardware, software, integration.</p>
+          <h2>Planning</h2>
+          <p>Organize the project into three main areas: hardware, electrical, software integration.</p>
           <div class="piles">
             <div class="pile p1"><b class="tag">Hardware</b>
-              <p class="h">materials</p><ul class="ml"><li>motors + wheels</li><li>motor driver</li><li>battery / power</li><li>a sensor</li><li>a board to run code</li></ul>
-              <p class="h">learn</p><ul class="ml learn"><li>how motors work</li><li>wiring + power basics</li><li>how a sensor gives numbers</li></ul>
+
+              <p class="h">learn</p><ul class="ml learn"><li>how each componet work</li><li>wiring + power </li><li>Customized mechanical design</li></ul>
+              <figure class="hardware-figure"><img src="assets/images/hardware-components.png" alt="Hardware components including a serial bus servo, quadcopter motor, flight controller, electronic speed controller, telemetry radios, LiPo battery, Jetson Orin Nano, and propeller"></figure>
             </div>
-            <div class="pile p3"><b class="tag">Software</b>
-              <p class="h">materials</p><ul class="ml"><li>a laptop + editor</li><li>ROS</li></ul>
-              <p class="h">learn</p><ul class="ml learn"><li>programming to send commands</li><li>reading sensor values</li><li>what a ROS node is</li></ul>
+            <div class="pile p3"><b class="tag">Electrical</b>
+
+              <p class="h">learn</p><ul class="ml learn"><li>PCB design</li><li>Good wiring practices</li></ul>
             </div>
-            <div class="pile p2"><b class="tag">Integration</b>
-              <p class="h">materials</p><ul class="ml"><li>cables to connect it all</li><li>patience</li></ul>
-              <p class="h">learn</p><ul class="ml learn"><li>software ↔ hardware</li><li>testing one piece at a time</li></ul>
+            <div class="pile p2"><b class="tag">Software Integration</b>
+
+              <p class="h">learn</p><ul class="ml learn"><li>Software-in-the-Loop (SITL) simulation </li><li>Firmware</li><li>Drone control</li><li>Mobile Robot control</li><li>Remote control module</li></ul>
             </div>
           </div>
-          <p>Integration is where most problems showed up.</p>
+          <figure class="hardware-figure"><img src="assets/images/system-architecture.png" alt="System architecture diagram showing communication, power, controller, low-level control, and visual inspection subsystems"></figure>
+          <p>This is the place I wish I could start the project earlier. So many problems !!!!!</p>
         </div>
       </div>
     </div>
@@ -678,80 +760,35 @@ body.light-mode .tasks i {
     <!-- U-turn -->
     <div class="u-connector">
       <svg viewBox="0 0 100 44" preserveAspectRatio="none">
-        <path class="u-line" d="M 5,0 L 5,20 Q 5,40 25,40 L 75,40 Q 95,40 95,20 L 95,0" vector-effect="non-scaling-stroke"/>
+        <defs>
+          <marker id="route-arrow-2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="2" markerHeight="2" markerUnits="userSpaceOnUse" orient="auto">
+            <path d="M0 0 L9 5 L0 10Z" fill="var(--green)" fill-opacity="0.65"/>
+          </marker>
+        </defs>
+        <path class="u-line" d="M 50,0 L 50,20 Q 50,40 42,40 L 11,40 Q 3.3,40 3.3,20 L 3.3,92" marker-end="url(#route-arrow-2)" vector-effect="non-scaling-stroke"/>
       </svg>
     </div>
 
     <!-- ─── Row 3: Steps 5 → 6 (left to right) ─── -->
-    <div class="route-row row-even">
+    <div class="route-row">
       <div class="stop" data-step="5">
         <div class="station">
-          <div class="station-num">!!</div>
-          <span class="station-label">REALITY CHECK</span>
+          <div class="station-num">05</div>
         </div>
         <div class="stop-card">
-          <h2>It will break (a lot)</h2>
-          <p>Robot doesn't move. Cool, now what? I went through issues one by one.</p>
-          <details><summary>> open debug.log</summary>
-          <ul class="chk">
-            <li><label><input type="checkbox"><span>Is it the <b>code</b>?</span></label></li>
-            <li><label><input type="checkbox"><span>Is it the <b>wiring</b>?</span></label></li>
-            <li><label><input type="checkbox"><span>Is it the <b>power</b>?</span></label></li>
-            <li><label><input type="checkbox"><span>Is it the <b>motor driver</b>?</span></label></li>
-            <li><label><input type="checkbox"><span>Is my software even <b>talking</b> to the hardware?</span></label></li>
-          </ul>
-          <p>Debugging taught me more than anything else did.</p>
-          </details>
+          <h2>Ta da da !! Final product</h2>
+          <p>After several tests and failures, I finally got the robot working!</p>
+          <figure class="hardware-figure">
+            <img src="assets/images/final-product.png" alt="The completed transformable UAV-UGV robot in ground, transition, and aerial configurations">
+            <figcaption class="result-caption">Final product</figcaption>
+          </figure>
+          <figure class="hardware-figure">
+            <img src="assets/images/inspection-results.png" alt="Visual inspection results showing model detections for cracks, people, and entrances">
+            <figcaption class="result-caption">Inspection results</figcaption>
+          </figure>
         </div>
       </div>
 
-      <div class="stop" data-step="6">
-        <div class="station">
-          <div class="station-num">06</div>
-          <span class="station-label">TOOLS</span>
-        </div>
-        <div class="stop-card">
-          <h2>AI as a study buddy</h2>
-          <ul class="q">
-            <li>Used ChatGPT when I needed a concept in plain English.</li>
-            <li>If it didn't click, I'd try Claude or Perplexity for a different angle.</li>
-            <li>Also asked AI to help debug when I was stuck.</li>
-            <li>But I double check the important stuff. AI gets things wrong.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- U-turn -->
-    <div class="u-connector">
-      <svg viewBox="0 0 100 44" preserveAspectRatio="none">
-        <path class="u-line" d="M 95,0 L 95,20 Q 95,40 75,40 L 25,40 Q 5,40 5,20 L 5,0" vector-effect="non-scaling-stroke"/>
-      </svg>
-    </div>
-
-    <!-- ─── Row 4: Steps 7 ← 8 (right to left) ─── -->
-    <div class="route-row row-odd">
-      <div class="stop end" data-step="8">
-        <div class="station">
-          <div class="station-num">★</div>
-          <span class="station-label">DESTINATION</span>
-        </div>
-        <div class="stop-card">
-          <h2>What I took from it</h2>
-          <p>You don't have to understand everything before you start. Take the huge scary thing, chop it up, and solve one tiny piece at a time.</p>
-        </div>
-      </div>
-
-      <div class="stop" data-step="7">
-        <div class="station">
-          <div class="station-num">07</div>
-          <span class="station-label">HANDS ON</span>
-        </div>
-        <div class="stop-card">
-          <h2>Doing beats reading</h2>
-          <p>I could read 20 ROS tutorials and still not get it. Then I got one ROS node to talk to another and it finally made sense.</p>
-        </div>
-      </div>
     </div>
 
   </div>
@@ -762,14 +799,6 @@ body.light-mode .tasks i {
 </div>
 
 <script>
-// Robot animation
-var bot = document.getElementById('bot');
-document.getElementById('run').onclick = function() {
-  bot.classList.remove('go');
-  void bot.getBoundingClientRect();
-  setTimeout(function() { bot.classList.add('go'); }, 30);
-};
-
 // Theme toggle (same logic as portfolio)
 const toggle = document.getElementById('theme-toggle');
 const body = document.body;
