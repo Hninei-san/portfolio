@@ -11,7 +11,7 @@
 /* ── Blog page overrides ── */
 :root {
   --acc: #f27fa8;
-  --accsoft: #fde3ec;
+  --accsoft: rgba(242,127,168,.15);
   --accink: #fff;
   --soft: rgba(255,255,255,0.04);
   --line: rgba(255,255,255,0.1);
@@ -42,9 +42,15 @@ body {
 .back-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 main {
-  max-width: 680px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 96px 22px 100px;
+  padding: 96px 32px 100px;
+}
+
+.hero {
+  max-width: 680px;
+  margin: 0 auto 60px;
+  text-align: center;
 }
 
 h1, h2 { margin: 0; font-weight: 700; line-height: 1.2; letter-spacing: -.015em; }
@@ -53,66 +59,196 @@ h1, h2 { margin: 0; font-weight: 700; line-height: 1.2; letter-spacing: -.015em;
   font-size: .8rem;
   font-weight: 500;
   color: var(--acc);
-  background: rgba(242,127,168,.15);
+  background: var(--accsoft);
   border-radius: 999px;
-  padding: 4px 12px;
+  padding: 4px 14px;
   margin-bottom: 18px;
 }
-h1 { font-size: clamp(1.9rem, 6vw, 2.7rem); }
-.lede { color: var(--mute); font-size: 1.1rem; margin: 16px 0 40px; }
+h1 { font-size: clamp(1.9rem, 5vw, 2.7rem); }
+.lede { color: var(--mute); font-size: 1.1rem; margin: 16px 0 0; }
 
-/* robot track */
-.track { position: relative; height: 60px; border-bottom: 2px solid var(--line); }
-.bot { position: absolute; left: 0; bottom: -2px; width: 52px; transition: left 2.4s cubic-bezier(.5,0,.3,1); }
-.bot.go { left: calc(100% - 52px); }
-.run {
-  font: 500 .95rem "DM Sans", sans-serif;
-  background: var(--acc);
-  color: #1d1a22;
-  border: 0;
-  border-radius: 999px;
-  padding: 10px 22px;
-  cursor: pointer;
-  margin-top: 18px;
-  transition: opacity .15s;
+/* ═══════════════════════════════════════════════
+   HORIZONTAL ROUTE MAP
+   ═══════════════════════════════════════════════ */
+
+.route-map {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 0 auto;
+  max-width: 1040px;
 }
-.run:hover { opacity: .85; }
 
-/* thread */
-.thread { list-style: none; margin: 56px 0 0; padding: 0; position: relative; }
-.thread:before { content: ""; position: absolute; left: 17px; top: 10px; bottom: 10px; width: 2px; background: var(--line); }
-.post { position: relative; padding-left: 56px; margin-bottom: 22px; }
-.dot {
-  position: absolute;
-  left: 0; top: 18px;
-  width: 36px; height: 36px;
+/* ── Row containers ── */
+.route-row {
+  display: contents;
+}
+
+/* ── Individual stop ── */
+.stop {
+  position: relative;
+  padding: 32px 24px 40px;
+}
+
+/* ── The numbered station marker ── */
+.station {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.station-num {
+  flex: none;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: rgba(242,127,168,.18);
+  background: var(--bg-blog);
+  border: 2.5px solid var(--acc);
   color: var(--acc);
   font-weight: 700;
-  font-size: .95rem;
+  font-size: 1rem;
   display: grid;
   place-items: center;
-  border: 4px solid var(--bg-blog);
-  box-sizing: content-box;
-  margin: -4px 0 0 -4px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(242,127,168,.25), inset 0 0 12px rgba(242,127,168,.08);
+  transition: all .3s ease;
 }
-.box {
+
+.stop:hover .station-num {
+  background: var(--acc);
+  color: #1a1a1a;
+  box-shadow: 0 0 30px rgba(242,127,168,.5);
+  transform: scale(1.1);
+}
+
+.station-label {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+/* ── Content card ── */
+.stop-card {
   background: var(--soft);
   border: 1px solid var(--line);
   border-radius: 18px;
-  padding: 20px 22px;
+  padding: 22px 24px;
+  transition: border-color .3s, box-shadow .3s, transform .3s;
 }
-h2 { font-size: 1.15rem; margin-bottom: 6px; }
-.box p { margin: 6px 0; color: var(--mute); }
 
-/* sticky notes */
+.stop:hover .stop-card {
+  border-color: rgba(242,127,168,.3);
+  box-shadow: 0 8px 40px rgba(242,127,168,.08);
+  transform: translateY(-2px);
+}
+
+.stop-card h2 { font-size: 1.1rem; margin-bottom: 8px; color: var(--ink); }
+.stop-card p { margin: 6px 0; color: var(--mute); font-size: .95rem; }
+
+/* ── SVG connector lines between stops ── */
+.route-connectors {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.route-connectors path {
+  fill: none;
+  stroke: var(--acc);
+  stroke-width: 2;
+  stroke-dasharray: 8 6;
+  opacity: .35;
+}
+
+.route-connectors circle {
+  fill: var(--acc);
+  opacity: .2;
+}
+
+/* ── Horizontal arrow between 2 stops on same row ── */
+.h-connector {
+  position: absolute;
+  top: 52px;
+  left: calc(50% - 40px);
+  width: 80px;
+  height: 2px;
+  z-index: 1;
+}
+.h-connector::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--acc) 0 8px, transparent 8px 14px);
+  opacity: .4;
+}
+.h-connector::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--acc);
+  border-right: 2px solid var(--acc);
+  transform: rotate(45deg);
+  opacity: .4;
+}
+
+/* ── Vertical U-turn connector between rows ── */
+.u-connector {
+  position: relative;
+  grid-column: 1 / -1;
+  height: 50px;
+  overflow: visible;
+}
+
+.u-connector svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.u-connector .u-line {
+  fill: none;
+  stroke: var(--acc);
+  stroke-width: 2;
+  stroke-dasharray: 8 6;
+  opacity: .35;
+}
+
+/* Row direction indicators */
+.row-even .station { flex-direction: row; }
+.row-odd .station { flex-direction: row; }
+
+/* Reverse order for odd rows (right-to-left) — the second row snakes back */
+.row-odd {
+  direction: rtl;
+}
+.row-odd .stop-card,
+.row-odd .station {
+  direction: ltr;
+}
+
+/* ── Sticky notes ── */
 ul.q { margin: 8px 0 0; padding: 0; list-style: none; }
-ul.q li { position: relative; padding-left: 20px; margin: 6px 0; color: var(--mute); }
+ul.q li { position: relative; padding-left: 20px; margin: 6px 0; color: var(--mute); font-size: .93rem; }
 ul.q li:before { content: ""; position: absolute; left: 2px; top: .65em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
 
-.board { display: flex; flex-wrap: wrap; gap: 14px 12px; margin: 16px 0 12px; padding: 18px 14px; border-radius: 14px; background: rgba(255,255,255,.03); border: 1px dashed var(--line); }
-.note { flex: 1 1 130px; max-width: 190px; min-height: 84px; padding: 12px 12px 10px; font: 500 .95rem/1.35 "DM Sans",sans-serif; color: #3a2f3f; border-radius: 3px 3px 12px 3px; box-shadow: 0 5px 10px rgba(0,0,0,.4); transition: transform .2s; }
+.board { display: flex; flex-wrap: wrap; gap: 10px 8px; margin: 14px 0 10px; padding: 14px 10px; border-radius: 12px; background: rgba(255,255,255,.03); border: 1px dashed var(--line); }
+.note { flex: 1 1 110px; max-width: 160px; min-height: 70px; padding: 10px 10px 8px; font: 500 .85rem/1.35 "DM Sans",sans-serif; color: #3a2f3f; border-radius: 3px 3px 10px 3px; box-shadow: 0 4px 8px rgba(0,0,0,.4); transition: transform .2s; }
 .note:nth-child(5n+1){background:#ffd9e6;transform:rotate(-2.5deg)}
 .note:nth-child(5n+2){background:#fff3b8;transform:rotate(1.8deg)}
 .note:nth-child(5n+3){background:#cfe9ff;transform:rotate(-1deg)}
@@ -120,52 +256,109 @@ ul.q li:before { content: ""; position: absolute; left: 2px; top: .65em; width: 
 .note:nth-child(5n){background:#d3f3e6;transform:rotate(-1.8deg)}
 .note:hover{transform:rotate(0) translateY(-3px) scale(1.04)}
 
-/* piles */
-.piles { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 12px; margin: 14px 0 10px; }
-.pile { background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
-.tag { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 14px; font-size: .9rem; color: #3a2f3f; }
-.tag em { font-style: normal; font-weight: 500; font-size: .72rem; background: #fff; border-radius: 999px; padding: 2px 9px; }
-.p1 .tag{background:#ffd9e6}.p2 .tag{background:#cfe9ff}.p3 .tag{background:#e4d8ff}.p4 .tag{background:#fff3b8}
-.pile p { margin: 0; padding: 10px 14px 0; font-size: .92rem; }
-.pile .todo { padding: 6px 14px 14px; color: var(--ink); }
-.todo span { display: inline-block; font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--acc); margin-right: 6px; }
-.pile .h { padding: 12px 14px 0; font-size: .7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--acc); }
-.ml { list-style: none; margin: 4px 0 0; padding: 0 14px 6px; }
-.ml li { position: relative; padding-left: 24px; margin: 4px 0; font-size: .93rem; color: var(--ink); }
-.ml li:before { content: ""; position: absolute; left: 0; top: .28em; width: 13px; height: 13px; border: 2px solid var(--acc); border-radius: 4px; }
+/* ── Piles (materials) ── */
+.piles { display: grid; grid-template-columns: 1fr; gap: 10px; margin: 12px 0 8px; }
+.pile { background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.tag { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 12px; font-size: .85rem; color: #3a2f3f; font-weight: 600; }
+.p1 .tag{background:#ffd9e6}.p2 .tag{background:#cfe9ff}.p3 .tag{background:#e4d8ff}
+.pile .h { padding: 10px 12px 0; font-size: .65rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--acc); }
+.ml { list-style: none; margin: 2px 0 0; padding: 0 12px 4px; }
+.ml li { position: relative; padding-left: 20px; margin: 3px 0; font-size: .85rem; color: var(--ink); }
+.ml li:before { content: ""; position: absolute; left: 0; top: .3em; width: 11px; height: 11px; border: 2px solid var(--acc); border-radius: 3px; }
 .ml.learn li:before { border-radius: 50%; background: rgba(242,127,168,.2); }
-.ml.learn { padding-bottom: 14px; }
+.ml.learn { padding-bottom: 10px; }
 
-/* timeline */
-.timeline { list-style: none; margin: 16px 0 4px; padding: 0; position: relative; }
-.timeline:before { content: ""; position: absolute; left: 15px; top: 14px; bottom: 14px; width: 2px; background: var(--line); }
-.tl-item { position: relative; display: flex; gap: 16px; padding-bottom: 18px; }
+/* ── Timeline (inside step 4) ── */
+.timeline { list-style: none; margin: 12px 0 4px; padding: 0; position: relative; }
+.timeline:before { content: ""; position: absolute; left: 13px; top: 12px; bottom: 12px; width: 2px; background: var(--line); }
+.tl-item { position: relative; display: flex; gap: 12px; padding-bottom: 14px; }
 .tl-item:last-child { padding-bottom: 0; }
-.mk { flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--bg-blog); border: 2px solid var(--acc); color: var(--acc); font-weight: 700; font-size: .85rem; display: grid; place-items: center; position: relative; z-index: 1; transition: background .2s, color .2s; }
+.mk { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--bg-blog); border: 2px solid var(--acc); color: var(--acc); font-weight: 700; font-size: .75rem; display: grid; place-items: center; position: relative; z-index: 1; transition: background .2s, color .2s; }
 .tl-item:not(:has(input:not(:checked))) .mk { background: var(--acc); color: #1d1a22; }
-.tl-body h3 { margin: 4px 0 4px; font-size: 1rem; color: var(--ink); }
+.tl-body h3 { margin: 2px 0 4px; font-size: .9rem; color: var(--ink); }
 .tasks { list-style: none; margin: 0; padding: 0; }
-.tasks label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; padding: 3px 0; font-size: .95rem; color: var(--mute); }
-.tasks input { position: absolute; opacity: 0; width: 20px; height: 20px; }
-.tasks i { flex: none; width: 18px; height: 18px; margin-top: .22em; border: 2px solid var(--acc); border-radius: 5px; display: grid; place-items: center; }
+.tasks label { display: flex; gap: 8px; align-items: flex-start; cursor: pointer; padding: 2px 0; font-size: .85rem; color: var(--mute); }
+.tasks input { position: absolute; opacity: 0; width: 16px; height: 16px; }
+.tasks i { flex: none; width: 16px; height: 16px; margin-top: .2em; border: 2px solid var(--acc); border-radius: 4px; display: grid; place-items: center; }
 .tasks input:checked+i { background: var(--acc); }
-.tasks input:checked+i:after { content: ""; width: 5px; height: 9px; border: solid #1d1a22; border-width: 0 2px 2px 0; transform: rotate(45deg) translate(-1px,-1px); }
+.tasks input:checked+i:after { content: ""; width: 4px; height: 8px; border: solid #1d1a22; border-width: 0 2px 2px 0; transform: rotate(45deg) translate(-1px,-1px); }
 .tasks input:checked~span { text-decoration: line-through; opacity: .6; }
 
-/* debug checklist */
+/* ── Debug checklist ── */
 details { margin-top: 8px; }
-summary { cursor: pointer; font-weight: 500; color: var(--ink); }
-.chk { list-style: none; padding: 0; margin: 8px 0; }
-.chk label { display: flex; gap: 12px; align-items: center; cursor: pointer; padding: 4px 0; color: var(--mute); }
-.chk input { width: 20px; height: 20px; accent-color: var(--acc); }
+summary { cursor: pointer; font-weight: 500; color: var(--ink); font-size: .93rem; }
+.chk { list-style: none; padding: 0; margin: 6px 0; }
+.chk label { display: flex; gap: 10px; align-items: center; cursor: pointer; padding: 3px 0; color: var(--mute); font-size: .9rem; }
+.chk input { width: 18px; height: 18px; accent-color: var(--acc); }
 .chk input:checked+span { text-decoration: line-through; opacity: .55; }
 
-/* end card */
-.end .box { background: rgba(242,127,168,.12); border-color: rgba(242,127,168,.25); }
-.end h2 { color: var(--ink); }
-.end p { color: var(--ink); }
+/* ── End card ── */
+.stop.end .stop-card { background: rgba(242,127,168,.1); border-color: rgba(242,127,168,.25); }
+.stop.end .stop-card h2 { color: var(--ink); }
+.stop.end .stop-card p { color: var(--ink); opacity: .85; }
+.stop.end .station-num {
+  background: var(--acc);
+  color: #1a1a1a;
+  box-shadow: 0 0 30px rgba(242,127,168,.4);
+}
 
-footer { margin: 44px 0 0; color: var(--mute); font-size: .95rem; text-align: center; }
+/* ── Robot track ── */
+.track { position: relative; height: 60px; border-bottom: 2px solid var(--line); max-width: 680px; margin: 0 auto; }
+.bot { position: absolute; left: 0; bottom: -2px; width: 52px; transition: left 2.4s cubic-bezier(.5,0,.3,1); }
+.bot.go { left: calc(100% - 52px); }
+.run {
+  font: 500 .95rem "DM Sans", sans-serif;
+  background: var(--acc);
+  color: #1a1a1a;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 22px;
+  cursor: pointer;
+  margin-top: 18px;
+  transition: opacity .15s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.run:hover { opacity: .85; }
+
+/* ── Route label ── */
+.route-title {
+  text-align: center;
+  margin: 50px 0 10px;
+  color: var(--mute);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+footer { margin: 60px 0 0; color: var(--mute); font-size: .95rem; text-align: center; }
+
+/* ═══════════════════════════════════
+   RESPONSIVE — stack on mobile
+   ═══════════════════════════════════ */
+@media (max-width: 700px) {
+  main { padding: 86px 16px 80px; }
+  .route-map { grid-template-columns: 1fr; }
+  .row-odd { direction: ltr; }
+  .h-connector { display: none; }
+  .u-connector { display: none; }
+  .stop { padding: 16px 0 24px; }
+  .stop::before {
+    content: "";
+    position: absolute;
+    left: 21px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: repeating-linear-gradient(180deg, var(--acc) 0 8px, transparent 8px 14px);
+    opacity: .25;
+    z-index: 0;
+  }
+  .stop:first-child::before { top: 52px; }
+  .stop:last-child::before { bottom: 50%; }
+}
 
 @media (prefers-reduced-motion: reduce) { .bot { transition: none; } }
 </style>
@@ -215,80 +408,201 @@ footer { margin: 44px 0 0; color: var(--mute); font-size: .95rem; text-align: ce
   </nav>
 
 <main>
-  <a href="index.html" class="back-link">
-    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-    back to portfolio
-  </a>
+  <div class="hero">
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      back to portfolio
+    </a>
 
-  <header>
-    <span class="eyebrow">something I love: robots</span>
-    <h1>How I learn stuff I have no clue about (by building a robot) 🤖</h1>
-    <p class="lede">Ok so I wanted to build a UAV-UGV robot (one that flies and drives) and had no idea how. This thread is less about robots and more about how I got unstuck, because that part works for pretty much anything new.</p>
-  </header>
+    <header>
+      <span class="eyebrow">something I love: robots</span>
+      <h1>How I learn stuff I have no clue about (by building a robot) 🤖</h1>
+      <p class="lede">Ok so I wanted to build a UAV-UGV robot (one that flies and drives) and had no idea how. This thread is less about robots and more about how I got unstuck, because that part works for pretty much anything new.</p>
+    </header>
 
-  <div class="track" aria-hidden="true">
-    <div class="bot" id="bot"><svg viewBox="0 0 52 52" width="52" height="52"><line x1="26" y1="3" x2="26" y2="10" stroke="#f27fa8" stroke-width="2.5" stroke-linecap="round"/><circle cx="26" cy="3" r="3" fill="#f27fa8"/><rect x="5" y="10" width="42" height="28" rx="10" fill="rgba(242,127,168,0.15)" stroke="#f27fa8" stroke-width="2.5"/><circle cx="18" cy="23" r="3.2" fill="#f5f5f7"/><circle cx="34" cy="23" r="3.2" fill="#f5f5f7"/><path d="M22 30 Q26 33 30 30" fill="none" stroke="#f5f5f7" stroke-width="2.2" stroke-linecap="round"/><circle cx="14" cy="44" r="6" fill="rgba(255,255,255,0.1)" stroke="#f27fa8" stroke-width="2.5"/><circle cx="38" cy="44" r="6" fill="rgba(255,255,255,0.1)" stroke="#f27fa8" stroke-width="2.5"/></svg></div>
+    <div class="track" aria-hidden="true">
+      <div class="bot" id="bot"><svg viewBox="0 0 52 52" width="52" height="52"><line x1="26" y1="3" x2="26" y2="10" stroke="#f27fa8" stroke-width="2.5" stroke-linecap="round"/><circle cx="26" cy="3" r="3" fill="#f27fa8"/><rect x="5" y="10" width="42" height="28" rx="10" fill="rgba(242,127,168,0.15)" stroke="#f27fa8" stroke-width="2.5"/><circle cx="18" cy="23" r="3.2" fill="#f5f5f7"/><circle cx="34" cy="23" r="3.2" fill="#f5f5f7"/><path d="M22 30 Q26 33 30 30" fill="none" stroke="#f5f5f7" stroke-width="2.2" stroke-linecap="round"/><circle cx="14" cy="44" r="6" fill="rgba(255,255,255,0.1)" stroke="#f27fa8" stroke-width="2.5"/><circle cx="38" cy="44" r="6" fill="rgba(255,255,255,0.1)" stroke="#f27fa8" stroke-width="2.5"/></svg></div>
+    </div>
+    <button class="run" id="run">Make it go</button>
   </div>
-  <button class="run" id="run">Make it go</button>
 
-  <ol class="thread">
-    <li class="post"><span class="dot">1</span><div class="box"><h2>Not knowing anything</h2><p>I wanted to build a UAV-UGV robot. I didn't know what parts I needed or what to even google first. Honestly the blank-page feeling was the worst part.</p></div></li>
+  <p class="route-title">⟡ My learning route map ⟡</p>
 
-    <li class="post"><span class="dot">2</span><div class="box"><h2>Shrink the big scary question</h2><p>"Build a robot" is way too vague to start on. So I did a sticky note brain dump and wrote down every question in my head, even the dumb ones, before trying to answer any of them.</p>
-    <div class="board" role="list">
-      <span class="note" role="listitem">what should it even do??</span>
-      <span class="note" role="listitem">how does it move?</span>
-      <span class="note" role="listitem">what do I buy lol</span>
-      <span class="note" role="listitem">how does it know what's in front of it</span>
-      <span class="note" role="listitem">what's the "brain"?</span>
-      <span class="note" role="listitem">how does my code make motors go</span>
-      <span class="note" role="listitem">is this too hard</span>
+  <!-- ═════════════════════════════════════════
+       HORIZONTAL ROUTE MAP — 2 per row, snaking
+       ═════════════════════════════════════════ -->
+  <div class="route-map" id="routeMap">
+
+    <!-- ─── Row 1: Steps 1 → 2 (left to right) ─── -->
+    <div class="route-row row-even">
+      <div class="stop" data-step="1">
+        <div class="station">
+          <div class="station-num">1</div>
+          <span class="station-label">Start here</span>
+        </div>
+        <div class="stop-card">
+          <h2>Not knowing anything</h2>
+          <p>I wanted to build a UAV-UGV robot. I didn't know what parts I needed or what to even google first. Honestly the blank-page feeling was the worst part.</p>
+        </div>
+      </div>
+
+      <div class="stop" data-step="2">
+        <div class="station">
+          <div class="station-num">2</div>
+          <span class="station-label">Brain dump</span>
+        </div>
+        <div class="stop-card">
+          <h2>Shrink the big scary question</h2>
+          <p>"Build a robot" is way too vague to start on. So I did a sticky note brain dump — every question, even the dumb ones.</p>
+          <div class="board" role="list">
+            <span class="note" role="listitem">what should it even do??</span>
+            <span class="note" role="listitem">how does it move?</span>
+            <span class="note" role="listitem">what do I buy lol</span>
+            <span class="note" role="listitem">how does it know what's in front of it</span>
+            <span class="note" role="listitem">what's the "brain"?</span>
+            <span class="note" role="listitem">how does my code make motors go</span>
+            <span class="note" role="listitem">is this too hard</span>
+          </div>
+          <p>Once they were all out, none of them looked as scary as "build a robot" did.</p>
+        </div>
+      </div>
     </div>
-    <p>Once they were all out on the table, none of them looked as scary as "build a robot" did.</p></div></li>
 
-    <li class="post"><span class="dot">3</span><div class="box"><h2>Make a materials list</h2><p>Next I turned the sticky notes into a list: what I needed to get and what I needed to learn, split into hardware, software, and integration. Then I only had to learn the next thing, not all of robotics.</p>
-    <div class="piles">
-      <div class="pile p1"><b class="tag">Hardware</b>
-        <p class="h">Materials</p><ul class="ml"><li>motors + wheels</li><li>motor driver</li><li>battery / power</li><li>a sensor</li><li>a board to run the code</li></ul>
-        <p class="h">Need to learn</p><ul class="ml learn"><li>how motors work</li><li>wiring + power basics</li><li>how a sensor gives you numbers</li></ul>
+    <!-- ── U-turn connector row 1→2 ── -->
+    <div class="u-connector" id="u1">
+      <svg viewBox="0 0 100 50" preserveAspectRatio="none">
+        <path class="u-line" d="M 95,0 L 95,25 Q 95,45 75,45 L 25,45 Q 5,45 5,25 L 5,0" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+
+    <!-- ─── Row 2: Steps 3 → 4 (right to left) ─── -->
+    <div class="route-row row-odd">
+      <div class="stop" data-step="4">
+        <div class="station">
+          <div class="station-num">4</div>
+          <span class="station-label">Execute</span>
+        </div>
+        <div class="stop-card">
+          <h2>Go in order</h2>
+          <p>I started by researching and reverse engineering. This is the order I took it in — tick them off as you go.</p>
+          <ol class="timeline">
+            <li class="tl-item"><span class="mk">1</span><div class="tl-body"><h3>Research + reverse engineer</h3><ul class="tasks"><li><label><input type="checkbox"><i></i><span>Look up how existing UAV and UGV robots are built</span></label></li><li><label><input type="checkbox"><i></i><span>Break them down on paper</span></label></li></ul></div></li>
+            <li class="tl-item"><span class="mk">2</span><div class="tl-body"><h3>Learn UGV and UAV</h3><ul class="tasks"><li><label><input type="checkbox"><i></i><span>Learn how a ground robot moves and steers</span></label></li><li><label><input type="checkbox"><i></i><span>Learn how a drone flies and stays stable</span></label></li></ul></div></li>
+            <li class="tl-item"><span class="mk">3</span><div class="tl-body"><h3>Do the calculations</h3><ul class="tasks"><li><label><input type="checkbox"><i></i><span>Work out weight, power and battery needs</span></label></li><li><label><input type="checkbox"><i></i><span>Check the numbers add up before buying</span></label></li></ul></div></li>
+            <li class="tl-item"><span class="mk">4</span><div class="tl-body"><h3>Prepare materials</h3><ul class="tasks"><li><label><input type="checkbox"><i></i><span>Turn calculations into a parts list</span></label></li><li><label><input type="checkbox"><i></i><span>Gather everything and make sure it all fits</span></label></li></ul></div></li>
+            <li class="tl-item"><span class="mk">5</span><div class="tl-body"><h3>Software stack</h3><ul class="tasks"><li><label><input type="checkbox"><i></i><span>Pick the software that controls each part</span></label></li><li><label><input type="checkbox"><i></i><span>Get everything talking to each other</span></label></li></ul></div></li>
+          </ol>
+        </div>
       </div>
-      <div class="pile p3"><b class="tag">Software</b>
-        <p class="h">Materials</p><ul class="ml"><li>a laptop + code editor</li><li>ROS</li></ul>
-        <p class="h">Need to learn</p><ul class="ml learn"><li>enough programming to send commands</li><li>how to read sensor values in code</li><li>what a ROS node is</li></ul>
-      </div>
-      <div class="pile p2"><b class="tag">Integration</b>
-        <p class="h">Materials</p><ul class="ml"><li>cables to connect it all</li><li>patience</li></ul>
-        <p class="h">Need to learn</p><ul class="ml learn"><li>how my software talks to the hardware</li><li>testing one piece at a time</li><li>making sensor input change what the motors do</li></ul>
+
+      <div class="stop" data-step="3">
+        <div class="station">
+          <div class="station-num">3</div>
+          <span class="station-label">Organize</span>
+        </div>
+        <div class="stop-card">
+          <h2>Make a materials list</h2>
+          <p>I turned the sticky notes into a list: what I needed to get and what I needed to learn.</p>
+          <div class="piles">
+            <div class="pile p1"><b class="tag">Hardware</b>
+              <p class="h">Materials</p><ul class="ml"><li>motors + wheels</li><li>motor driver</li><li>battery / power</li><li>a sensor</li><li>a board to run the code</li></ul>
+              <p class="h">Need to learn</p><ul class="ml learn"><li>how motors work</li><li>wiring + power basics</li><li>how a sensor gives you numbers</li></ul>
+            </div>
+            <div class="pile p3"><b class="tag">Software</b>
+              <p class="h">Materials</p><ul class="ml"><li>a laptop + code editor</li><li>ROS</li></ul>
+              <p class="h">Need to learn</p><ul class="ml learn"><li>enough programming to send commands</li><li>how to read sensor values in code</li><li>what a ROS node is</li></ul>
+            </div>
+            <div class="pile p2"><b class="tag">Integration</b>
+              <p class="h">Materials</p><ul class="ml"><li>cables to connect it all</li><li>patience</li></ul>
+              <p class="h">Need to learn</p><ul class="ml learn"><li>how software talks to hardware</li><li>testing one piece at a time</li></ul>
+            </div>
+          </div>
+          <p>Integration is where most problems showed up.</p>
+        </div>
       </div>
     </div>
-    <p>Hardware and software are pretty separate. Integration is where they have to work together, and it's where most of my problems showed up.</p></div></li>
 
-    <li class="post"><span class="dot">4</span><div class="box"><h2>Go in order</h2><p>I started by researching and reverse engineering, since I had no clue how a UAV-UGV robot even works. This is the order I took it in, and I didn't move on until each part made sense. Tick them off as you go.</p>
-    <ol class="timeline">
-      <li class="tl-item"><span class="mk">1</span><div class="tl-body"><h3>Research + reverse engineer</h3><ul class="tasks"><li><label><input type="checkbox"><i></i><span>Look up how existing UAV (air) and UGV (ground) robots are built</span></label></li><li><label><input type="checkbox"><i></i><span>Break them down on paper: what parts they have and what each one does</span></label></li></ul></div></li>
-      <li class="tl-item"><span class="mk">2</span><div class="tl-body"><h3>Learn UGV and UAV</h3><ul class="tasks"><li><label><input type="checkbox"><i></i><span>Learn how a ground robot moves and steers</span></label></li><li><label><input type="checkbox"><i></i><span>Learn how a drone flies and stays stable</span></label></li></ul></div></li>
-      <li class="tl-item"><span class="mk">3</span><div class="tl-body"><h3>Do the calculations</h3><ul class="tasks"><li><label><input type="checkbox"><i></i><span>Work out weight, power and battery needs</span></label></li><li><label><input type="checkbox"><i></i><span>Check the numbers add up before buying anything</span></label></li></ul></div></li>
-      <li class="tl-item"><span class="mk">4</span><div class="tl-body"><h3>Prepare materials</h3><ul class="tasks"><li><label><input type="checkbox"><i></i><span>Turn the calculations into a parts list</span></label></li><li><label><input type="checkbox"><i></i><span>Gather everything and make sure it all fits</span></label></li></ul></div></li>
-      <li class="tl-item"><span class="mk">5</span><div class="tl-body"><h3>Software stack</h3><ul class="tasks"><li><label><input type="checkbox"><i></i><span>Pick the software that controls each part</span></label></li><li><label><input type="checkbox"><i></i><span>Get everything talking to each other</span></label></li></ul></div></li>
-    </ol></div></li>
+    <!-- ── U-turn connector row 2→3 ── -->
+    <div class="u-connector" id="u2">
+      <svg viewBox="0 0 100 50" preserveAspectRatio="none">
+        <path class="u-line" d="M 5,0 L 5,25 Q 5,45 25,45 L 75,45 Q 95,45 95,25 L 95,0" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
 
-    <li class="post"><span class="dot">!</span><div class="box"><h2>It will break (a lot)</h2><p>Robot doesn't move. Cool, now what? It could be a bunch of things, so I went through them one by one.</p>
-    <details><summary>My debugging checklist</summary>
-    <ul class="chk">
-      <li><label><input type="checkbox"><span>Is it the <b>code</b>?</span></label></li>
-      <li><label><input type="checkbox"><span>Is it the <b>wiring</b>?</span></label></li>
-      <li><label><input type="checkbox"><span>Is it the <b>power</b>?</span></label></li>
-      <li><label><input type="checkbox"><span>Is it the <b>motor driver</b>?</span></label></li>
-      <li><label><input type="checkbox"><span>Is my software even <b>talking</b> to the hardware?</span></label></li>
-    </ul><p>Annoying, but honestly debugging taught me more than anything else did.</p></details></div></li>
+    <!-- ─── Row 3: Steps 5 → 6 (left to right) ─── -->
+    <div class="route-row row-even">
+      <div class="stop" data-step="5">
+        <div class="station">
+          <div class="station-num">!</div>
+          <span class="station-label">Reality check</span>
+        </div>
+        <div class="stop-card">
+          <h2>It will break (a lot)</h2>
+          <p>Robot doesn't move. Cool, now what? I went through issues one by one.</p>
+          <details><summary>My debugging checklist</summary>
+          <ul class="chk">
+            <li><label><input type="checkbox"><span>Is it the <b>code</b>?</span></label></li>
+            <li><label><input type="checkbox"><span>Is it the <b>wiring</b>?</span></label></li>
+            <li><label><input type="checkbox"><span>Is it the <b>power</b>?</span></label></li>
+            <li><label><input type="checkbox"><span>Is it the <b>motor driver</b>?</span></label></li>
+            <li><label><input type="checkbox"><span>Is my software even <b>talking</b> to the hardware?</span></label></li>
+          </ul>
+          <p>Debugging taught me more than anything else did.</p>
+          </details>
+        </div>
+      </div>
 
-    <li class="post"><span class="dot">6</span><div class="box"><h2>AI as a study buddy</h2>
-    <ul class="q"><li>I used ChatGPT when I needed a concept explained in plain English.</li><li>If it still didn't click, I'd ask Claude or Perplexity, since a different explanation sometimes makes it make sense.</li><li>I also asked AI to help me debug when I was stuck.</li><li>But I double check the important stuff. AI gets things wrong sometimes.</li></ul></div></li>
+      <div class="stop" data-step="6">
+        <div class="station">
+          <div class="station-num">6</div>
+          <span class="station-label">Tools</span>
+        </div>
+        <div class="stop-card">
+          <h2>AI as a study buddy</h2>
+          <ul class="q">
+            <li>I used ChatGPT when I needed a concept explained in plain English.</li>
+            <li>If it still didn't click, I'd ask Claude or Perplexity for a different angle.</li>
+            <li>I also asked AI to help me debug when I was stuck.</li>
+            <li>But I double check the important stuff. AI gets things wrong sometimes.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <li class="post"><span class="dot">7</span><div class="box"><h2>Doing beats reading</h2><p>I could read 20 ROS tutorials and still not get it. Then I got one ROS node to talk to another and it finally made sense.</p></div></li>
+    <!-- ── U-turn connector row 3→4 ── -->
+    <div class="u-connector" id="u3">
+      <svg viewBox="0 0 100 50" preserveAspectRatio="none">
+        <path class="u-line" d="M 95,0 L 95,25 Q 95,45 75,45 L 25,45 Q 5,45 5,25 L 5,0" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
 
-    <li class="post end"><span class="dot">8</span><div class="box"><h2>What I took from it</h2><p>You don't have to understand everything before you start. Take the huge scary thing, chop it up, and solve one tiny piece at a time.</p></div></li>
-  </ol>
+    <!-- ─── Row 4: Steps 7 → 8 (right to left) ─── -->
+    <div class="route-row row-odd">
+      <div class="stop end" data-step="8">
+        <div class="station">
+          <div class="station-num">★</div>
+          <span class="station-label">Destination</span>
+        </div>
+        <div class="stop-card">
+          <h2>What I took from it</h2>
+          <p>You don't have to understand everything before you start. Take the huge scary thing, chop it up, and solve one tiny piece at a time.</p>
+        </div>
+      </div>
+
+      <div class="stop" data-step="7">
+        <div class="station">
+          <div class="station-num">7</div>
+          <span class="station-label">Hands on</span>
+        </div>
+        <div class="stop-card">
+          <h2>Doing beats reading</h2>
+          <p>I could read 20 ROS tutorials and still not get it. Then I got one ROS node to talk to another and it finally made sense.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Horizontal connectors (positioned by JS) ── -->
+  </div>
 
   <footer>Go try something you know nothing about. Start with one small question.</footer>
 </main>
@@ -312,6 +626,24 @@ toggle.addEventListener('click', function() {
   const next = isDark ? 'light' : 'dark';
   html.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
+});
+
+// Animate stops on scroll
+const stops = document.querySelectorAll('.stop');
+const observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.15 });
+
+stops.forEach(function(stop) {
+  stop.style.opacity = '0';
+  stop.style.transform = 'translateY(30px)';
+  stop.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(stop);
 });
 </script>
 </body>
